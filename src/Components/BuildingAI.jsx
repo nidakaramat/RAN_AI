@@ -1,55 +1,276 @@
-import React from 'react';
+// import React from 'react';
+// import { ArrowRight } from 'lucide-react';
+// import Group from '../assets/Images/Group.png';
+// const BuildingAI = () => {
+//   return (
+//     <section className="relative overflow-hidden  text-slate-900">
+//       <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl" />
+//       <div className="pointer-events-none absolute right-0 top-24 h-64 w-64 rounded-full  blur-3xl" />
+//       <div className="mx-auto flex w-full max-w-7xl flex-col-reverse gap-10 px-4 py-20 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-24 lg:px-8">
+//         <div className="z-10 flex flex-col gap-8 text-left">
+//           <span className="inline-flex items-center w-20 rounded-full border border-blue-200 px-2 py-2 text-xs font-semibold tracking-wide text-blue-700 shadow-md">
+//             About Us
+//           </span>
+//           <h1 className="text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-5xl">
+//             Your <span className="text-blue-600">Partner</span> for Building
+//             <br /> AI That Actually Works
+//           </h1>
+//           <p className="max-w-xl text-base text-[#343844]  sm:text-lg leading-relaxed text-justify ">
+//             Ran AI is a software development company that builds and deploys
+//             intelligent AI systems for modern enterprises. We design
+//             production-ready solutions that automate operations, power customer
+//             interactions, and streamline complex workflows while integrating
+//             seamlessly with existing tools and infrastructure.
+//           </p>
+//           <p className="max-w-xl text-base text-[#343844] sm:text-lg leading-relaxed text-justify">
+//             Our focus is on turning artificial intelligence into reliable
+//             business systems that improve efficiency, reduce operational
+//             friction, and deliver measurable impact across the organization. One
+//             of our core solutions, RanVoice, enables businesses to automate
+//             inbound and outbound calls, qualify leads, and manage customer
+//             conversations at scale using AI-powered voice agents.
+//           </p>
+//           <div className="flex flex-wrap gap-4 items-center">
+//             <a
+//               href="#services"
+//               className="flex items-center gap-2 rounded-full bg-[#100202] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(44,93,238,0.35)] transition hover:shadow-[0_12px_26px_rgba(66,102,255,0.45)] hover:-translate-y-0.5"
+//             >
+//               Explore Our Solutions
+//               <ArrowRight className="w-4 h-4" />
+//             </a>
+//           </div>
+//         </div>
+
+//         <div className="relative flex items-center justify-center">
+//           <div className="">
+//             <div>
+//               <img src={Group} alt="AI Illustration" className="h-140 w-full object-cover" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default BuildingAI;
+
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Group from '../assets/Images/Group.png';
-const BuildingAI = () => {
-  return (
-    <section className="relative overflow-hidden  text-slate-900">
-      <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute right-0 top-24 h-64 w-64 rounded-full  blur-3xl" />
-      <div className="mx-auto flex w-full max-w-7xl flex-col-reverse gap-10 px-4 py-20 sm:px-6 lg:grid lg:grid-cols-2 lg:items-center lg:gap-24 lg:px-8">
-        <div className="z-10 flex flex-col gap-8 text-left">
-          <span className="inline-flex items-center w-20 rounded-full border border-blue-200 px-2 py-2 text-xs font-semibold tracking-wide text-blue-700 shadow-md">
-            About Us
-          </span>
-          <h1 className="text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-5xl">
-            Your <span className="text-blue-600">Partner</span> for Building
-            <br /> AI That Actually Works
-          </h1>
-          <p className="max-w-xl text-base text-[#343844]  sm:text-lg leading-relaxed text-justify ">
-            Ran AI is a software development company that builds and deploys
-            intelligent AI systems for modern enterprises. We design
-            production-ready solutions that automate operations, power customer
-            interactions, and streamline complex workflows while integrating
-            seamlessly with existing tools and infrastructure.
-          </p>
-          <p className="max-w-xl text-base text-[#343844] sm:text-lg leading-relaxed text-justify">
-            Our focus is on turning artificial intelligence into reliable
-            business systems that improve efficiency, reduce operational
-            friction, and deliver measurable impact across the organization. One
-            of our core solutions, RanVoice, enables businesses to automate
-            inbound and outbound calls, qualify leads, and manage customer
-            conversations at scale using AI-powered voice agents.
-          </p>
-          <div className="flex flex-wrap gap-4 items-center">
-            <a
-              href="#services"
-              className="flex items-center gap-2 rounded-full bg-[#100202] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(44,93,238,0.35)] transition hover:shadow-[0_12px_26px_rgba(66,102,255,0.45)] hover:-translate-y-0.5"
-            >
-              Explore Our Solutions
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
+import {motion} from 'framer-motion';
+import { BsStars } from "react-icons/bs";
 
-        <div className="relative flex items-center justify-center">
-          <div className="">
-            <div>
-              <img src={Group} alt="AI Illustration" className="h-140 w-full object-cover" />
+
+const BuildingAI = () => {
+  const [visible, setVisible] = useState(false);
+  const [imgHovered, setImgHovered] = useState(false);
+  const sectionRef = useRef(null);
+  const imgRef     = useRef(null);
+  const rafRef     = useRef(null);
+
+  /* ── Scroll-trigger ── */
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.12 }
+    );
+    if (sectionRef.current) obs.observe(sectionRef.current);
+    return () => obs.disconnect();
+  }, []);
+
+  /* ── 3-D tilt on image ── */
+  const onMove = (e) => {
+    const el = imgRef.current; if (!el) return;
+    const r  = el.getBoundingClientRect();
+    const dx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+    const dy = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      el.style.setProperty('--rx',  `${-dy * 12}deg`);
+      el.style.setProperty('--ry',  `${ dx * 12}deg`);
+      el.style.setProperty('--sx',  `${(dx + 1) * 50}%`);
+      el.style.setProperty('--sy',  `${(dy + 1) * 50}%`);
+      el.style.setProperty('--sop','1');
+    });
+  };
+  const onLeave = () => {
+    const el = imgRef.current; if (!el) return;
+    el.style.setProperty('--rx',  '0deg');
+    el.style.setProperty('--ry',  '0deg');
+    el.style.setProperty('--sop','0');
+    setImgHovered(false);
+  };
+
+
+  return (
+    <>
+      <style>
+        {`
+        @keyframes fadeUp {
+          from { opacity:0; transform:translateY(36px); }
+          to   { opacity:1; transform:translateY(0); }
+        }
+        @keyframes fadeRight {
+          from { opacity:0; transform:translateX(48px); }
+          to   { opacity:1; transform:translateX(0); }
+        }
+        @keyframes floatUpDown {
+          0%,100% { transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(0px); }
+          50%      { transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-14px); }
+        }
+        @keyframes spinCW  { to { transform:rotate(360deg);  } }
+        @keyframes spinCCW { to { transform:rotate(-360deg); } }
+        @keyframes shimmer {
+          from { background-position:-300% center; }
+          to   { background-position: 300% center; }
+        }
+
+        .anim-0 { opacity:0; animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .08s forwards; }
+        .anim-1 { opacity:0; animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .22s forwards; }
+        .anim-2 { opacity:0; animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .36s forwards; }
+        .anim-3 { opacity:0; animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .50s forwards; }
+        .anim-4 { opacity:0; animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .64s forwards; }
+        .anim-img{ opacity:0; animation:fadeRight .85s cubic-bezier(.22,1,.36,1) .28s forwards; }
+      `}
+      </style>
+
+      <section
+        ref={sectionRef}
+        className="relative overflow-hidden text-slate-900"
+      >
+        <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl" />
+        <div className="pointer-events-none absolute right-0 top-24 h-64 w-64 rounded-full blur-3xl" />
+
+        <div className="relative flex w-full flex-col-reverse gap-6 px-4 sm:gap-8 sm:px-6 md:gap-10 md:px-8 py-12 sm:py-16 md:py-20 lg:grid lg:grid-cols-2 lg:ml-19">
+          {/* ── LEFT TEXT ── */}
+          <div className="z-10 flex flex-col gap-8 text-left">
+            <div className="flex gap-2">
+              <span
+                className={visible ? "anim-0" : "opacity-0"}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  borderRadius: "9999px",
+                  border: "1px solid #bfdbfe",
+                  padding: "0.5rem 0.75rem", // horizontal + vertical padding
+                  fontSize: "0.75rem",
+                  fontWeight: "600",
+                  letterSpacing: "0.05em",
+                  color: "#1d4ed8",
+                  boxShadow: "0 1px 3px rgba(0,0,0,.1)",
+                }}
+              >
+                <BsStars className="w-3 h-3 mr-1" /> {/* icon on left */}
+                About Us
+              </span>
+            </div>
+
+            <h1
+              className={`${visible ? "anim-1" : "opacity-0"} text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-slate-900`}
+            >
+              Your <span className="text-blue-600">Partner</span> for Building
+              <br /> AI That Actually Works
+            </h1>
+
+            {/* accent line */}
+            <div
+              style={{
+                height: "2px",
+                borderRadius: "2px",
+                background: "linear-gradient(90deg,#2563eb,#818cf8)",
+                width: visible ? "3rem" : "0",
+                transition: "width 1s cubic-bezier(.22,1,.36,1) .5s",
+              }}
+            />
+
+            <p
+              className={`${visible ? "anim-2" : "opacity-0"} max-w-xl text-sm sm:text-base md:text-base lg:text-lg text-[#343844] leading-relaxed text-justify`}
+            >
+              Ran AI is a software development company that builds and deploys
+              intelligent AI systems for modern enterprises. We design
+              production-ready solutions that automate operations, power
+              customer interactions, and streamline complex workflows while
+              integrating seamlessly with existing tools and infrastructure.
+            </p>
+
+            <p
+              className={`${visible ? "anim-3" : "opacity-0"} max-w-xl text-sm sm:text-base md:text-base lg:text-lg text-[#343844] leading-relaxed text-justify`}
+            >
+              Our focus is on turning artificial intelligence into reliable
+              business systems that improve efficiency, reduce operational
+              friction, and deliver measurable impact across the organization.
+              One of our core solutions, RanVoice, enables businesses to
+              automate inbound and outbound calls, qualify leads, and manage
+              customer conversations at scale using AI-powered voice agents.
+            </p>
+
+            <div
+              className={`${visible ? "anim-4" : "opacity-0"} flex flex-wrap gap-4 items-center`}
+            >
+              <a
+                href="#services"
+                className="flex items-center gap-2 rounded-full px-7 py-4.5 text-sm font-semibold text-white hover:-translate-y-0.5 relative overflow-hidden"
+                style={{
+                  background: "#100202",
+                  color: "#fff",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.boxShadow =
+                    "0 12px 26px rgba(66,102,255,0.45)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.boxShadow =
+                    "0 10px 25px rgba(44,93,238,0.35)")
+                }
+              >
+                Explore Our Solutions
+                <ArrowRight className="w-4 h-4" />
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "0",
+                    left: "0",
+                    width: "100%",
+                    height: "2px", // thickness of bottom line
+                    background:
+                      "linear-gradient(to right, #00ff00, #0000ff, #ff0000)",
+                    borderRadius: "9999px", // matches rounded-full button
+                    boxShadow: "0 2px 6px rgba(0,0,0,0.2)", // subtle glow
+                    pointerEvents: "none", // allows button click
+                  }}
+                ></span>
+              </a>
             </div>
           </div>
+
+          {/* ── RIGHT IMAGE ── */}
+          <motion.div
+            className="relative flex items-center justify-end lg:pr-30 mt-8 lg:mt-40"
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.img
+              src={Group}
+              alt="AI Illustration"
+              className="h-[560px] w-auto object-contain translate-x-10 lg:translate-x-20"
+              // 👇 floating animation
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              // 👇 hover effect
+              whileHover={{ scale: 1.05 }}
+            />
+          </motion.div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

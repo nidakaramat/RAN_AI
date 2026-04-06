@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   SiAirtable,
   SiSalesforce,
@@ -10,7 +11,7 @@ import { LuArrowsUpFromLine } from "react-icons/lu";
 import { SiQbittorrent } from "react-icons/si";
 import { FaHubspot } from "react-icons/fa";
 
-import RanLogo from "../assets/Images/RanLogo.png";
+import RanLogo from "../assets/Images/logo.png";
 
 const EndlessPossibilities = () => {
   const startRadius = 80;
@@ -69,22 +70,52 @@ const EndlessPossibilities = () => {
   ];
 
   return (
-    <div className="min-h-screen py-15 px-6">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: false }}
+      className="min-h-screen py-15 px-6"
+    >
       {/* Header */}
-      <div className="text-center mb-20">
-        <div className="inline-block text-blue-600 text-md font-semibold px-4 py-2 rounded-full mb-6 shadow-xl border border-gray-200">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, margin: "-50px" }}
+        className="text-center mb-20"
+      >
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: false }}
+          className="inline-block text-blue-600 text-md font-semibold px-4 py-2 rounded-full mb-6 shadow-xl border border-gray-200"
+        >
           Integrations
-        </div>
-        <h1 className="text-5xl font-semibold text-gray-900 mb-6">
+        </motion.div>
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: false }}
+          className="text-5xl font-semibold text-gray-900 mb-6"
+        >
           Endless Possibilities
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          viewport={{ once: false }}
+          className="text-xl text-gray-600 max-w-3xl mx-auto"
+        >
           Ran AI unifies your entire tech stack with secure, seamless
           integrations for
           <br />
           frictionless, reliable connectivity across your ecosystem.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Circle Section */}
       <div className="flex justify-center items-center py-12 -mt-40 mb-20">
@@ -173,12 +204,12 @@ const EndlessPossibilities = () => {
           {/* 🟢 CENTER LOGO (FIXED) */}
           <div className="absolute top-1/2 left-1/2 z-20 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-40 h-40 flex items-center justify-center">
-              <img src={RanLogo} alt="Ran AI Logo" className="h-14 w-14" />
+              <img src={RanLogo} alt="Ran AI Logo" className="h-20 w-20" />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

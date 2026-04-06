@@ -1,131 +1,290 @@
 import React from "react";
-import RanLogo from "../assets/Images/RanLogo.png";
+import { motion } from "framer-motion";
+import RanLogo from "../assets/Images/logo.png";
 import { FiFacebook, FiLinkedin, FiInstagram, FiYoutube } from "react-icons/fi";
 import heroImage from "../assets/images/AIVoice/img.png";
 
 const Footer = () => {
   return (
-    <div className="bg-white rounded-[60px] border border-slate-200 text-slate-700 overflow-hidden ml-20 mr-20 mb-20">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: false, margin: "-50px" }}
+      className="bg-white rounded-[60px] border border-slate-200 text-slate-700 overflow-hidden mx-3 sm:mx-6 md:mx-8 lg:mx-20 mb-12 sm:mb-16 md:mb-20"
+    >
       {/* Hero Section */}
-      <div className="relative overflow-hidden rounded-3xl p-10 text-white sm:p-10 lg:p-10 ml-5 mr-5 mt-6">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: false }}
+        className="relative overflow-hidden rounded-3xl p-6 sm:p-8 md:p-10 text-white mx-3 sm:mx-4 md:mx-5 mt-4 sm:mt-5 md:mt-6"
+      >
         {/* Background Image */}
-        <img
+        <motion.img
           src={heroImage}
           alt="AI cube"
-          className="absolute inset-0 h-full w-full "
+          className="absolute inset-0 h-full w-full"
+          initial={{ scale: 1 }}
+          whileInView={{ scale: 1.05 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: false }}
         />
-        <div className="absolute inset-0 "></div> {/* overlay */}
+        <div className="absolute inset-0"></div> {/* overlay */}
         {/* Content */}
-        <div className="relative flex flex-col items-center justify-center text-center h-full gap-6 max-w-7xl mx-auto">
-          <h3 className="text-3xl font-semibold sm:text-4xl lg:text-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: false }}
+          className="relative flex flex-col items-center justify-center text-center h-full gap-6 max-w-7xl mx-auto"
+        >
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            viewport={{ once: false }}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold"
+          >
             Ready to build AI that
             <br />
             works for your business?
-          </h3>
+          </motion.h3>
 
-          <button className="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-105 mt-18">
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: false }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 15px 35px rgba(0, 0, 0, 0.3)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            animate={{ y: [0, -5, 0] }}
+            transitionAnimate={{
+              y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+            }}
+            className="rounded-full bg-black px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition mt-10 sm:mt-12 md:mt-14"
+          >
             Book a Strategy Call
-          </button>
-        </div>
-      </div>
+          </motion.button>
+        </motion.div>
+      </motion.div>
 
       {/* Footer */}
-      <footer className="mx-auto w-full max-w-6xl px-6 py-12 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-1 gap-10 xl:grid-cols-4">
+      <motion.footer
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: false }}
+        className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12"
+      >
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-8 xl:grid-cols-4">
           {/* Logo & Description */}
-          <div className="space-y-5">
-            <div className="flex items-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: false }}
+            className="space-y-5"
+          >
+            <motion.div
+              className="flex items-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
               <img src={RanLogo} alt="Ran AI" className="h-14 w-14" />
-            </div>
-            <p className="text-sm text-slate-600">
+            </motion.div>
+            <p className="text-xs sm:text-sm text-slate-600">
               We help forward-thinking companies design, integrate, and scale AI
               systems that reduce costs, unlock efficiency, and accelerate
               growth.
             </p>
-            <div className="flex gap-3">
-              <button className="h-9 w-9 rounded-lg bg-black flex items-center justify-center text-white hover:bg-slate-800">
-                <FiFacebook size={20} />
-              </button>
-              <button className="h-9 w-9 rounded-lg bg-black flex items-center justify-center text-white hover:bg-slate-800">
-                <FiYoutube size={20} />
-              </button>
-              <button className="h-9 w-9 rounded-lg bg-black flex items-center justify-center text-white hover:bg-slate-800">
-                <FiLinkedin size={20} />
-              </button>
-              <button className="h-9 w-9 rounded-lg bg-black flex items-center justify-center text-white hover:bg-slate-800">
-                <FiInstagram size={20} />
-              </button>
-            </div>
+            <motion.div
+              className="flex gap-3"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: false }}
+            >
+              {[0, 1, 2, 3].map((idx) => (
+                <motion.button
+                  key={idx}
+                  className="h-9 w-9 rounded-lg bg-black flex items-center justify-center text-white hover:bg-slate-800"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + idx * 0.08, duration: 0.4 }}
+                  viewport={{ once: false }}
+                  whileHover={{ scale: 1.15, rotateZ: 8 }}
+                >
+                  {idx === 0 && <FiFacebook size={20} />}
+                  {idx === 1 && <FiInstagram size={20} />}
+                  {idx === 2 && <FiLinkedin size={20} />}
+                  {idx === 3 && <FiYoutube size={20} />}
+                </motion.button>
+              ))}
+            </motion.div>
 
             {/* Newsletter */}
-            <div className="mt-8">
-              <h5 className="mb-3 text-sm font-semibold text-black">
+            <motion.div
+              className="mt-10 sm:mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: false }}
+            >
+              <h5 className="mb-3 text-xs sm:text-sm font-semibold text-[#020817]">
                 Subscribe to Our Newsletter
               </h5>
-              <div className="flex gap-2">
-                <input
+              <div className="flex gap-2 flex-col sm:flex-row">
+                <motion.input
                   type="email"
                   placeholder="Your Email"
-                  className="flex-1 rounded-lg border border-slate-200 px-4 py-2 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:border-blue-500"
+                  className="flex-1 rounded-full border border-slate-200 px-4 sm:px-5 py-2 text-xs sm:text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:border-blue-500"
+                  whileFocus={{
+                    borderColor: "#3b82f6",
+                    boxShadow: "0 0 10px rgba(59, 130, 246, 0.2)",
+                  }}
                 />
-                <button className="rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition">
+                <motion.button
+                  className="rounded-full bg-[#123ABD] px-5 sm:px-6 py-2 text-xs sm:text-sm font-light text-white hover:bg-blue-700 transition whitespace-nowrap"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   Submit
-                </button>
+                </motion.button>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Links & Legal */}
-          <div className="grid grid-cols-2 gap-8 xl:col-span-2 ml-30">
-            <div>
-              <h4 className="mb-4 text-sm font-semibold tracking-wider text-black">
+          <motion.div
+            className="grid grid-cols-2 gap-6 sm:gap-8 md:gap-8 xl:col-span-2 md:ml-0 lg:ml-30"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            viewport={{ once: false }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: false }}
+            >
+              <h4 className="mb-3 sm:mb-4 text-xs sm:text-sm font-semibold tracking-wider text-black">
                 Links
               </h4>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>Services</li>
-                <li>Industries</li>
-                <li>Startup Launchpad</li>
-                <li>About Us</li>
-                <li>Products</li>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-600">
+                {[
+                  "Services",
+                  "Industries",
+                  "Startup Launchpad",
+                  "About Us",
+                  "Products",
+                ].map((item, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 + idx * 0.06, duration: 0.4 }}
+                    viewport={{ once: false }}
+                    whileHover={{ x: 5, color: "#0f172a" }}
+                  >
+                    {item}
+                  </motion.li>
+                ))}
               </ul>
-            </div>
-            <div>
-              <h4 className="mb-4 text-sm font-semibold tracking-wider text-black">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: false }}
+            >
+              <h4 className="mb-3 sm:mb-4 text-xs sm:text-sm font-semibold tracking-wider text-black">
                 Legal
               </h4>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>Privacy Policy</li>
-                <li>Terms of services</li>
-                <li>Cookie Policy</li>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-600">
+                {["Privacy Policy", "Terms of services", "Cookie Policy"].map(
+                  (item, idx) => (
+                    <motion.li
+                      key={idx}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + idx * 0.06, duration: 0.4 }}
+                      viewport={{ once: false }}
+                      whileHover={{ x: -5, color: "#0f172a" }}
+                    >
+                      {item}
+                    </motion.li>
+                  ),
+                )}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
-            <h4 className="mb-4 text-sm font-semibold tracking-wider text-black">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            viewport={{ once: false }}
+          >
+            <h4 className="mb-3 sm:mb-4 text-xs sm:text-sm font-semibold tracking-wider text-black">
               Contacts
             </h4>
-            <ul className="space-y-2 text-sm text-slate-600">
-              <li>ran-ai@gmail.com</li>
-              <li>+92 300 xxxxxxxx</li>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-600">
+              {["ran-ai@gmail.com", "+92 300 xxxxxxxx"].map((item, idx) => (
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0, x: 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 + idx * 0.08, duration: 0.4 }}
+                  viewport={{ once: false }}
+                  whileHover={{ x: -5, color: "#0f172a" }}
+                >
+                  {item}
+                </motion.li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-10 border-t border-slate-200 pt-6 text-sm text-slate-500">
-          <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-            <p>© 2025 Ran AI. All rights reserved.</p>
-            <div className="flex gap-4">
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
-              <span>Cookie Policy</span>
-            </div>
+        <motion.div
+          className="border-slate-200 text-xs sm:text-sm text-slate-500"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: false }}
+        >
+          <div className="md:ml-0 lg:ml-180 text-[#212121]">
+            <p className="md:ml-0 lg:ml-30">© 2025 Ran AI. All rights reserved.</p>
+            <motion.div
+              className="flex gap-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: false }}
+            >
+              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+                (item, idx) => (
+                  <motion.span
+                    key={idx}
+                    whileHover={{ color: "#000" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {item} {idx < 2 && <span className="mx-2">|</span>}
+                  </motion.span>
+                ),
+              )}
+            </motion.div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </motion.div>
+      </motion.footer>
+    </motion.div>
   );
 };
 
