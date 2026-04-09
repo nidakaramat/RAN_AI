@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import img1 from "../../../assets/images/industries/img1.png";
+import { BsStars } from "react-icons/bs";
 
 const AISolution = () => {
   return (
@@ -19,9 +20,16 @@ const AISolution = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center"
         >
-          <span className="inline-flex items-center rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-semibold text-[#1D4ED8] shadow-sm">
-            Our Services
-          </span>
+          <motion.span
+            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-1.5 rounded-full text-sm"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            <BsStars className="h-4 w-4 mr-1" />
+            Our Industries
+          </motion.span>
           <h1
             className="mt-7 text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             style={{ fontFamily: "Geist, sans-serif" }}

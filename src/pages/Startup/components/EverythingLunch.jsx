@@ -1,7 +1,10 @@
+
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { BsStars } from "react-icons/bs";
-import { Receipt,Lightbulb ,Check,Users ,Target,Zap } from "lucide-react";
+import { Receipt, Lightbulb, Check, Users, Target, Zap } from "lucide-react";
+import { useRef, useEffect } from "react";
+
 const EverythingLunch = () => {
   const benefits = [
     {
@@ -32,7 +35,7 @@ const EverythingLunch = () => {
 
   const services = [
     {
-      icon: <Lightbulb className="text-[#0066FF]" />,
+      icon: <Lightbulb className="text-[#0066FF] " />,
       week: "WEEK 1-4",
       title: "Ideation & Validation",
       desc: "Refine your AI idea, validate market fit, and build your founding team.",
@@ -57,119 +60,174 @@ const EverythingLunch = () => {
     },
   ];
 
+  // Animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const fadeInStagger = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.2 } },
+  };
+
+  // Reusable scroll animation hook
+  const useScrollAnimation = () => {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: false, margin: "-100px" });
+    const controls = useAnimation();
+
+    useEffect(() => {
+      if (inView) {
+        controls.start("visible");
+      } else {
+        controls.start("hidden");
+      }
+    }, [inView, controls]);
+
+    return [ref, controls];
+  };
+
+  // Refs for sections
+  const [benefitRef, benefitControls] = useScrollAnimation();
+  const [serviceRef, serviceControls] = useScrollAnimation();
+  const [headerRef, headerControls] = useScrollAnimation();
+
   return (
-    <div className="bg-white">
+    <div className="bg-white -mt-10">
       {/* Section 1: Everything You Need to Launch */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="py-16 sm:py-20 md:py-24"
-      >
+      <section className="py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mb-10 text-center "
+            ref={headerRef}
+            initial="hidden"
+            animate={headerControls}
+            variants={fadeInStagger}
+            className="mb-10 text-center"
           >
-            <p className=" text-sm font-semibold text-[#1D4ED8] bg-white p-4 rounded-4xl shadow-lg border border-slate-200 inline-flex items-center">
+            <motion.p
+              className="text-sm font-semibold text-[#1D4ED8] bg-white p-4 rounded-4xl shadow-lg border border-slate-200 inline-flex items-center"
+              variants={fadeUp}
+            >
               <BsStars className="w-4 h-4 mr-2" />
               Why Choose Us
-            </p>
-            <h2
+            </motion.p>
+            <motion.h2
               className="text-4xl font-medium text-slate-900 sm:text-5xl mt-10"
               style={{ fontFamily: "Geist, sans-serif" }}
+              variants={fadeUp}
             >
               Everything You Need <br />
               to <span className="text-[#1D4ED8]">Launch</span>
-            </h2>
+            </motion.h2>
           </motion.div>
 
           {/* Benefits Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            ref={benefitRef}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {benefits.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.7,
-                  ease: "easeOut",
-                  delay: index * 0.1,
-                }}
+                initial="hidden"
+                animate={benefitControls}
+                variants={fadeUp}
+                transition={{ delay: index * 0.1 }}
                 className="rounded-4xl border border-slate-300 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-100 rounded-lg">
                   {item.icon}
-                </div>{" "}
-                <p
+                </div>
+                <motion.p
                   className="mb-1 text-2xl font-semibold text-[#1D4ED8] mt-4"
                   style={{ fontFamily: "DM sans, sans-serif" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: index * 0.1,
+                  }}
                 >
                   {item.value}
-                </p>
-                <p
+                </motion.p>
+
+                <motion.p
                   className="mb-3 font-medium text-slate-900 text-[18px]"
                   style={{ fontFamily: "DM sans, sans-serif" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: 0.15 + index * 0.1,
+                  }}
                 >
                   {item.title}
-                </p>
+                </motion.p>
                 <p className="text-[14px] text-slate-600">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Section 2: Intelligent AI Services */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className=" py-16 sm:py-20 md:py-24"
-      >
+      <section className="py-16 sm:py-20 md:py-24 -mt-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            ref={serviceRef}
+            initial="hidden"
+            animate={serviceControls}
+            variants={fadeInStagger}
             className="mb-12 text-center"
           >
-            <p className="mb-4 text-sm font-semibold text-[#1D4ED8]  p-4 rounded-4xl shadow-lg border border-slate-200 inline-flex items-center">
+            <motion.p
+              className="mb-4 text-sm font-semibold text-[#1D4ED8] p-4 rounded-4xl shadow-lg border border-slate-200 inline-flex items-center"
+              variants={fadeUp}
+            >
               <BsStars className="w-4 h-4 mr-2" />
               Our services
-            </p>
-            <h2
+            </motion.p>
+            <motion.h2
               className="text-4xl font-medium text-slate-900 sm:text-5xl"
               style={{ fontFamily: "Geist, sans-serif" }}
+              variants={fadeUp}
             >
               Intelligent <span className="text-[#1D4ED8]">AI Services</span>
               <br />
               Built for Scale
-            </h2>
+            </motion.h2>
           </motion.div>
 
           {/* Services Grid */}
-          {/* Services Grid */}
-          <div className="grid gap-50 lg:grid-cols-3 justify-center mx-auto">
+          <div className="grid gap-45 lg:grid-cols-3 justify-center mx-auto">
             {services.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.7,
-                  ease: "easeOut",
-                  delay: index * 0.1,
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.7,
+                      ease: "easeOut",
+                      delay: index * 0.2,
+                    },
+                  },
                 }}
                 className="w-100 max-w-lg rounded-[50px] border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow ml-40"
               >
@@ -177,35 +235,55 @@ const EverythingLunch = () => {
                   <div className="inline-block rounded-2xl bg-blue-50 p-3 text-2xl">
                     {item.icon}
                   </div>
-                  <p className="absolute top-0 right-0 text-xs font-bold text-[#1D4ED8] tracking-wide  px-2 py-1 ">
+                  <p className="absolute top-0 right-0 text-xs font-bold text-[#1D4ED8] tracking-wide px-2 py-1">
                     {item.week}
                   </p>
                 </div>
-                <h3
+                <motion.h3
                   className="mb-2 text-2xl font-medium text-slate-900"
                   style={{ fontFamily: "Geist, sans-serif" }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                 >
                   {item.title}
-                </h3>
-                <p className="mb-5 text-slate-600 text-[16px]">{item.desc}</p>
+                </motion.h3>
+                <motion.p
+                  className="mb-5 text-slate-600 text-[16px]"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                >
+                  {item.desc}
+                </motion.p>
                 <ul className="space-y-3">
                   {item.items.map((listItem, i) => (
-                    <li
+                    <motion.li
                       key={i}
                       className="flex items-center gap-2 text-slate-700"
+                      initial={{ opacity: 0, x: -15 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: false, amount: 0.2 }}
+                      transition={{
+                        duration: 0.5,
+                        ease: "easeOut",
+                        delay: 0.2 + i * 0.1,
+                      }}
                     >
                       <span className="text-[#1D4ED8] text-sm bg-blue-50 p-1 rounded-full">
                         <Check className="h-3.5 w-3.5" />
                       </span>
                       {listItem}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };

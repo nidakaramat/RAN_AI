@@ -9,6 +9,17 @@ const stats = [
   { value: "10+", label: "Industries Served" },
 ];
 
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, type: "spring", stiffness: 80, damping: 15 },
+  },
+};
+
+
 const StartupLunch = () => {
   return (
     <motion.section
@@ -57,35 +68,54 @@ const StartupLunch = () => {
             Book Free Consultation
           </button>
         </div>
-        <p
+
+        <motion.p
           className="text-center text-medium text-4xl mt-8 "
           style={{ fontFamily: "Geist, sans-serif" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.3 }}
         >
           We build intelligent systems that transform how
           <br /> businesses operate, scale, and grow.
-        </p>
+        </motion.p>
       </div>
 
-      <div
+       {/* Stats */}
+      <motion.div
         className="mt-12 max-w-[1050px] mx-auto grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         style={{ fontFamily: "Geist, sans-serif" }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } },
+        }}
       >
         {stats.map((item, index) => (
-          <div key={item.label} className="relative px-6 py-8 pl-8 text-left ml-12">
-            {/* Vertical Line for all items */}
+          <motion.div
+            key={item.label}
+            className="relative px-6 py-8 pl-8 text-left ml-12"
+            variants={itemVariants}
+          >
             <span className="absolute left-0 top-1/2 h-16 w-px -translate-y-1/2 bg-slate-400"></span>
-
             <p className="text-5xl font-medium text-[#121ABD]">{item.value}</p>
-            <p className="mt-2 text-sm font-medium text-slate-500">
-              {item.label}
-            </p>
-          </div>
+            <p className="mt-2 text-sm font-medium text-slate-500">{item.label}</p>
+          </motion.div>
         ))}
-      </div>
-
-      <div className="flex justify-center mt-6">
-         <img src={start} alt="start" className="h-[40%] w-[76%]"  />
-      </div>
+      </motion.div>
+      {/* Image */}
+      <motion.div
+        className="flex justify-center mt-6"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 1, type: "spring", bounce: 0.3 }}
+      >
+        <img src={start} alt="start" className="h-[40%] w-[76%]" />
+      </motion.div>
     </motion.section>
   );
 };

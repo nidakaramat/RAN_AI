@@ -1,6 +1,7 @@
 
 
 import React from "react";
+import { motion } from "framer-motion";
 import img1 from "../../../assets/images/industries/img2.png";
 import img2 from "../../../assets/images/industries/img3.png";
 import img3 from "../../../assets/images/industries/img7.png";
@@ -90,76 +91,139 @@ const industries = [
   },
 ];
 
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1 },
+};
+
 const IndustriesAI = () => {
   return (
     <section className="w-full py-[2%] mb-10">
       <div className="max-w-[1100px] mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-center text-[24px] lg:text-[32px] font-semibold mb-[3%]">
+        <motion.h2
+          className="text-center text-[24px] lg:text-[32px] font-semibold mb-[3%]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          variants={textVariants}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           Our <span className="text-blue-600">Industries</span>
-        </h2>
+        </motion.h2>
 
         {/* Sections */}
         <div className="flex flex-col gap-[2%] space-y-20">
           {industries.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className={`flex flex-col lg:flex-row items-start gap-[5%] ${
                 index % 2 !== 0 ? "lg:flex-row-reverse " : "ml-10 "
               }`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+              transition={{ duration: 0.9, type: "spring", bounce: 0.25 }}
+              variants={{
+                hidden: { opacity: 0, x: index % 2 !== 0 ? 50 : -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
             >
               {/* Text */}
-              <div className="w-full lg:w-[52%]">
-                <span className="inline-block text-blue-600 bg-blue-100 px-3 py-1.5 rounded-full text-xs mb-2 w-fit">
+              <motion.div
+                className="w-full lg:w-[52%]"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.8, staggerChildren: 0.1 }}
+              >
+                <motion.span
+                  className="inline-block text-[#121ABD] bg-white shadow-xl border border-blue-100 px-3 py-1.5 rounded-full text-md text-medium mb-2 w-fit"
+                  variants={textVariants}
+                  transition={{ duration: 0.5 }}
+                >
                   {item.tag}
-                </span>
+                </motion.span>
 
-                <h3
-                  className="text-xl lg:text-4xl font-semibold mb-2"
+                <motion.h3
+                  className="text-xl lg:text-4xl font-semibold mb-2 mt-3"
                   style={{ fontFamily: "DM Sans, sans-serif" }}
+                  variants={textVariants}
+                  transition={{ duration: 0.6 }}
                 >
                   {item.title}
-                </h3>
+                </motion.h3>
 
-                <p
-                  className="text-gray-600 text-lg mb-2 mt-8"
+                <motion.p
+                  className="text-gray-600 text-lg mb-2 mt-6"
                   style={{ fontFamily: "DM Sans, sans-serif" }}
+                  variants={textVariants}
+                  transition={{ duration: 0.6, delay: 0.1 }}
                 >
                   {item.desc}
-                </p>
+                </motion.p>
 
-                <p
-                  className="text-gray-600 text-lg mb-3 mt-5"
+                <motion.p
+                  className="text-gray-600 text-lg mb-3 mt-4"
                   style={{ fontFamily: "DM Sans, sans-serif" }}
+                  variants={textVariants}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   {item.des}
-                </p>
+                </motion.p>
 
-                <ul className="space-y-1.5">
+                <motion.ul
+                  className="space-y-1 mt-3"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false }}
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.15 } },
+                  }}
+                >
                   {item.points.map((point, i) => (
-                    <li
+                    <motion.li
                       key={i}
-                      className="flex items-start gap-2 text-[17px] text-black "
+                      className="flex items-start gap-2 text-[17px] text-black"
                       style={{ fontFamily: "DM Sans, sans-serif" }}
+                      variants={textVariants}
+                      transition={{ duration: 0.5 }}
                     >
-                      <span >
+                      <span>
                         <CircleCheckBig className="h-4 w-4 mt-1 text-[#121ABD]" />
                       </span>
                       {point}
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
-              </div>
+                </motion.ul>
+              </motion.div>
 
               {/* Image */}
-              <div className="w-full lg:w-[45%] flex items-center justify-center">
+              <motion.div
+                className="w-full lg:w-[45%] flex items-center justify-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false }}
+                variants={imageVariants}
+                transition={{ duration: 0.8, type: "spring", bounce: 0.25 }}
+              >
                 <img
                   src={item.img}
                   alt={item.title}
                   className="w-[95%] h-auto object-cover rounded-2xl"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

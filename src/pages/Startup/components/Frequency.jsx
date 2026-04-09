@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -32,14 +34,29 @@ function FAQItem({ question, answer }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-white rounded-xl overflow-hidden">
+    <motion.div
+      className="bg-white rounded-xl overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center px-5 py-[18px] text-left text-[15px] text-gray-900 font-normal cursor-pointer"
       >
-        <span>{question}</span>
-        <svg
-          className={`w-[18px] h-[18px] text-gray-400 flex-shrink-0 transition-transform duration-250 ${open ? "rotate-180" : "rotate-0"}`}
+        <motion.span
+          initial={{ opacity: 0, x: -10 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+        >
+          {question}
+        </motion.span>
+        <motion.svg
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="w-[18px] h-[18px] text-gray-400 flex-shrink-0"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -48,28 +65,39 @@ function FAQItem({ question, answer }) {
           viewBox="0 0 24 24"
         >
           <polyline points="6 9 12 15 18 9" />
-        </svg>
+        </motion.svg>
       </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-40" : "max-h-0"}`}
+      <motion.div
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="overflow-hidden"
       >
-        <p className="px-5 pb-[18px] text-sm text-gray-500 leading-relaxed">
+        <motion.p
+          className="px-5 pb-[18px] text-sm text-gray-500 leading-relaxed"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: open ? 1 : 0, y: open ? 0 : 10 }}
+          transition={{ duration: 0.5 }}
+        >
           {answer}
-        </p>
-      </div>
-    </div>
+        </motion.p>
+      </motion.div>
+    </motion.div>
   );
 }
 
 export default function FAQ() {
   return (
     <div className="bg-[#f2f1ef] min-h-screen flex flex-col items-center justify-center px-6 py-16">
-      <h1
+      <motion.h1
         className="text-5xl font-medium text-gray-900 mb-10 text-center tracking-tight"
         style={{ fontFamily: "Geist, sans-serif" }}
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
       >
         Frequently Asked Questions
-      </h1>
+      </motion.h1>
       <div className="w-full max-w-[680px] flex flex-col gap-[10px] text-[#101828]">
         {faqs.map((faq, i) => (
           <FAQItem key={i} question={faq.question} answer={faq.answer} />
