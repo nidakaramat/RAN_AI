@@ -92,22 +92,22 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import RanLogo from "../assets/Images/RanLogo.png";
-
+import RanLogo from "../assets/images/RanLogo.png";
+import { Link, useLocation } from "react-router-dom";
 
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Industries", href: "#industries" },
-  { name: "Startup Launchpad", href: "#startup" },
-  { name: "Products", href: "#products" },
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Industries", path: "/industries" },
+  { name: "Startup Launchpad", path: "/startup-lunchpad" },
+  { name: "Products", path: "/products" },
 ];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -144,38 +144,36 @@ const Navbar = () => {
 
         {/* 🔷 Nav Items (3D + underline + glow) */}
         <nav className="hidden items-center gap-8 text-sm font-medium text-[#202020] md:flex">
-          {navItems.map((item, i) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08, type: "spring", stiffness: 100 }}
-              whileHover={{
-                rotateX: 8,
-                rotateY: 8,
-                scale: 1.08,
-                textShadow: "0px 0px 8px rgba(79, 70, 229, 0.5)",
-              }}
-              className="relative"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              {item.name}
-
-              {/* underline */}
-              <motion.span
-                className="absolute left-0 -bottom-1 h-[2px] w-0 bg-indigo-600"
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-            </motion.a>
-          ))}
+          {navItems.map((item, i) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, type: "spring", stiffness: 100 }}
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "rgba(79, 70, 229, 0.15)",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 12px rgba(79, 70, 229, 0.3)",
+                }}
+                className={`relative px-2 py-1 rounded-lg transition-all duration-300 ${
+                  isActive ? "bg-indigo-100 text-indigo-700 shadow-md" : ""
+                }`}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <Link to={item.path} className="block">
+                  {item.name}
+                </Link>
+              </motion.div>
+            );
+          })}
         </nav>
 
         {/* 🔷 Button (3D + arrow move + pulse) */}
         <div className="hidden md:flex items-center gap-3">
-          <motion.a
-            href="#contact"
+          <motion.div
             whileHover={{
               rotateX: 10,
               rotateY: -10,
@@ -188,16 +186,21 @@ const Navbar = () => {
               scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
               hover: { duration: 0.2 },
             }}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#4149EE] to-[#121ABD] px-5 py-2 text-sm font-semibold text-white"
+            className="rounded-full transition"
           >
-            Contact Us
-            <motion.span
-              whileHover={{ x: 5 }}
-              className="bg-white rounded-full p-1 flex items-center justify-center"
+            <Link
+              to="/contact"
+              className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[#4149EE] to-[#121ABD] px-5 py-2 text-sm font-semibold text-white"
             >
-              <ArrowRight className="text-black w-4 h-4" />
-            </motion.span>
-          </motion.a>
+              Contact Us
+              <motion.span
+                whileHover={{ x: 5 }}
+                className="bg-white rounded-full p-1 flex items-center justify-center"
+              >
+                <ArrowRight className="text-black w-4 h-4" />
+              </motion.span>
+            </Link>
+          </motion.div>
         </div>
 
         {/* 🔷 Toggle */}
@@ -226,38 +229,45 @@ const Navbar = () => {
             className="md:hidden overflow-hidden"
           >
             <div className="space-y-3 px-4 py-4">
-              {navItems.map((item, i) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    delay: i * 0.06,
-                    type: "spring",
-                    stiffness: 120,
-                  }}
-                  whileHover={{ x: 6, scale: 1.03 }}
-                  className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-              <motion.a
-                href="#contact"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: navItems.length * 0.06,
-                  type: "spring",
-                  stiffness: 120,
-                }}
+              {navItems.map((item, i) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: i * 0.06,
+                      type: "spring",
+                      stiffness: 120,
+                    }}
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(79, 70, 229, 0.15)",
+                      x: 6,
+                    }}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`block rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                        isActive
+                          ? "bg-indigo-100 text-indigo-700 border-l-4 border-indigo-500"
+                          : "text-slate-700 hover:text-indigo-600"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+              <Link
+                to="/contact"
                 className="block rounded-xl border border-indigo-500 bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-600 text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us
-              </motion.a>
+              </Link>
             </div>
           </motion.div>
         )}

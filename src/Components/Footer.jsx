@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import RanLogo from "../assets/Images/logo.png";
+import RanLogo from "../assets/images/logo.png";
 import { FiFacebook, FiLinkedin, FiInstagram, FiYoutube } from "react-icons/fi";
 import heroImage from "../assets/images/AIVoice/img.png";
+import { FiBox } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: false, margin: "-50px" }}
-      className="bg-white rounded-[60px] border border-slate-200 text-slate-700 overflow-hidden mx-3 sm:mx-6 md:mx-8 lg:mx-20 mb-12 sm:mb-16 md:mb-20"
+      className="bg-white rounded-[50px] border border-slate-200 text-slate-700 overflow-hidden mx-3 sm:mx-6 md:mx-8 lg:mx-20 mb-12 sm:mb-16 md:mb-20"
     >
       {/* Hero Section */}
       <motion.div
@@ -38,14 +39,18 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: false }}
-          className="relative flex flex-col items-center justify-center text-center h-full gap-6 max-w-7xl mx-auto"
+          className="relative flex flex-col items-center justify-center text-center h-full gap-4 sm:gap-6 max-w-7xl mx-auto"
+          style={{ fontFamily: "DM Sans, sans-serif" }}
         >
+          <div className="mr-3">
+            <FiBox className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
+          </div>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: false }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold"
           >
             Ready to build AI that
             <br />
@@ -66,7 +71,7 @@ const Footer = () => {
             transitionAnimate={{
               y: { repeat: Infinity, duration: 2, ease: "easeInOut" },
             }}
-            className="rounded-full bg-black px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition mt-10 sm:mt-12 md:mt-14"
+            className="rounded-full bg-black px-5 sm:px-6 lg:px-6 py-2.5 sm:py-3 lg:py-3 text-xs sm:text-sm lg:text-base font-semibold text-white shadow-lg transition mt-10 sm:mt-12 md:mt-14 lg:mt-16"
           >
             Book a Strategy Call
           </motion.button>
@@ -79,7 +84,7 @@ const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
         viewport={{ once: false }}
-        className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12"
+        className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-10 md:py-12 ml-20"
       >
         <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-8 xl:grid-cols-4">
           {/* Logo & Description */}
@@ -88,7 +93,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: false }}
-            className="space-y-5"
+            className="space-y-5 xl:col-span-1"
           >
             <motion.div
               className="flex items-center gap-3"
@@ -231,6 +236,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: false }}
+            className="xl:col-span-1"
           >
             <h4 className="mb-3 sm:mb-4 text-xs sm:text-sm font-semibold tracking-wider text-black">
               Contacts
@@ -254,14 +260,16 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <motion.div
-          className="border-slate-200 text-xs sm:text-sm text-slate-500"
+          className=" text-xs sm:text-sm text-slate-500 pt-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: false }}
         >
-          <div className="md:ml-0 lg:ml-180 text-[#212121]">
-            <p className="md:ml-0 lg:ml-30">© 2025 Ran AI. All rights reserved.</p>
+          <div className="md:ml-0 lg:ml-160 text-[#212121]">
+            <p className="md:ml-0 lg:ml-30">
+              © 2025 Ran AI. All rights reserved.
+            </p>
             <motion.div
               className="flex gap-4"
               initial={{ opacity: 0 }}
