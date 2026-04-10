@@ -115,7 +115,7 @@ const BuildingAI = () => {
               className={`${visible ? "anim-1" : "opacity-0"} text-2xl sm:text-3xl md:text-4xl lg:text-[43px] font-medium leading-tight text-slate-900`}
               style={{
                 fontFamily: "Geist, sans-serif",
-                animation: "headingSlide 0.8s ease 0.3s both"
+                animation: "headingSlide 0.8s ease 0.3s both",
               }}
             >
               Your <span className="text-[#121ABD]">Partner</span> for Building
@@ -134,7 +134,8 @@ const BuildingAI = () => {
             />
 
             <p
-              className={`${visible ? "anim-2" : "opacity-0"} max-w-xl text-sm sm:text-base md:text-base lg:text-lg text-[#343844] leading-relaxed text-justify`}
+              className={`${visible ? "anim-2" : "opacity-0"} max-w-xl text-sm sm:text-base md:text-base lg:text-[17px] text-[#343844] leading-relaxed text-justify`}
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               Ran AI is a software development company that builds and deploys
               intelligent AI systems for modern enterprises. We design
@@ -144,7 +145,8 @@ const BuildingAI = () => {
             </p>
 
             <p
-              className={`${visible ? "anim-3" : "opacity-0"} max-w-xl text-sm sm:text-base md:text-base lg:text-lg text-[#343844] leading-relaxed text-justify`}
+              className={`${visible ? "anim-3" : "opacity-0"} max-w-xl text-sm sm:text-base md:text-base lg:text-[17px] text-[#343844] leading-relaxed text-justify`}
+              style={{ fontFamily: "Inter, sans-serif" }}
             >
               Our focus is on turning artificial intelligence into reliable
               business systems that improve efficiency, reduce operational

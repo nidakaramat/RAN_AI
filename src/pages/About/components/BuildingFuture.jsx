@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import heroImg from "../../../assets/images/about/heroImg.png";
+import { BsStars } from "react-icons/bs";
 
 const BuildingFuture = () => {
   return (
@@ -19,14 +20,25 @@ const BuildingFuture = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center"
         >
-          <span className="inline-flex items-center rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-semibold text-[#1D4ED8] shadow-sm">
+          <motion.span
+            className="inline-flex items-center text-[#155DFC] bg-white shadow-lg border border-blue-100 px-4 py-2 rounded-full text-[14px] sm:text-[16px] font-medium tracking-wide"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            <BsStars className="h-4 w-4 mr-1" />
             About Us
-          </span>
-          <h1 className="mt-7 text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
-           style={{ fontFamily: "Geist, sans-serif" }}
+          </motion.span>
+          <h1
+            className="mt-7 text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-[60px]"
+            style={{ fontFamily: "Geist, sans-serif" }}
           >
             Building the Future
-            <span className="block mt-2">
+            <span
+              className="block mt-2"
+              style={{ fontFamily: "Geist, sans-serif" }}
+            >
               of Intelligent <span className="text-[#1D4ED8]">Enterprise</span>
             </span>
           </h1>
@@ -51,10 +63,13 @@ const BuildingFuture = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="mx-auto mt-10 max-w-3xl text-center text-medium leading-8 text-[#767676] sm:text-[20px] lg:text-lg"
+          className="mx-auto mt-10 max-w-3xl  text-medium leading-relaxed text-[#767676] sm:text-[20px] lg:text-[18.9px] text-center"
+          
+        
         >
           We&apos;re on a mission to democratize enterprise AI—making
-          sophisticated artificial intelligence accessible, practical, and
+          sophisticated artificial intelligence
+            accessible, practical, and
           transformative for businesses of all sizes.
         </motion.p>
       </div>

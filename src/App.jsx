@@ -10,14 +10,16 @@ import Products from "./pages/Products/Products";
 import Industries from "./pages/Industries/Industries";
 import StartupLunchpad from "./pages/Startup/StartupLunchpad";
 import ContactUs from "./pages/contact/ContactUs";
+import ScrollToTop from "./Components/ScrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-        
+
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Service />} />
           <Route path="/products" element={<Products />} />

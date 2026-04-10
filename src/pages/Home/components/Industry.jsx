@@ -51,7 +51,7 @@ const Industry = () => {
           viewport={{ once: true }}
           className="mt-12 flex flex-col items-center gap-4"
         >
-          <div className="grid grid-cols-4 gap-2 justify-center space-y-2">
+          <div className="grid grid-cols-4 gap-2 justify-center space-y-2 ">
             {industries.map((industry, idx) => (
               <motion.div
                 key={industry.label}
@@ -70,12 +70,13 @@ const Industry = () => {
                   rotateX: -5,
                   boxShadow: "0 15px 40px rgba(18, 58, 189, 0.3)",
                 }}
-                className={`flex h-12 w-full max-w-[220px] items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-5 py-3 text-sm font-semibold text-slate-800 shadow-sm transition
+                className={`flex h-12 w-full max-w-[220px] items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-5 py-6 text-sm font-semibold text-slate-800 shadow-sm transition
         ${["", "", "", "", "col-start-2", "col-start-3"][idx]}`}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <motion.span
-                  className="text-lg"
+                  className="text-[18px] sm:text-[20px] md:text-[18px]"
+                  style={{ fontFamily: "inter, sans-serif" }}
                   whileHover={{ rotate: 12, scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >

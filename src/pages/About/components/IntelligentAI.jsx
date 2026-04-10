@@ -55,16 +55,17 @@ const IntelligentAI = () => {
               for Real Impact
             </h2>
             <p
-              className="max-w-screen-sm text-sm text-slate-600 sm:text-[20px] text-justify "
+              className="max-w-screen-sm text-sm sm:text-[19px] leading-relaxed  text-slate-600"
               style={{
                 fontFamily: "DM Sans, sans-serif",
                 wordSpacing: "normal",
                 letterSpacing: "0",
+                textAlignLast: "left",
               }}
             >
               To empower organizations with intelligent AI systems that augment
               human capabilities, automate complex workflows, and unlock new
-              opportunities for growth and innovation.We believe AI should be
+              opportunities for growth and innovation. We believe AI should be
               accessible, ethical, and deliver tangible business value.
             </p>
           </div>
@@ -141,7 +142,15 @@ const IntelligentAI = () => {
               <br />
               Industry Worldwide
             </h2>
-            <p className="max-w-xl text-sm  text-slate-600 sm:text-[20px] leading-relaxed text-justify ">
+            <p
+              className="max-w-screen-sm text-sm sm:text-[20px] leading-relaxed  text-slate-600"
+              style={{
+                fontFamily: "DM Sans, sans-serif",
+                wordSpacing: "normal",
+                letterSpacing: "0",
+                textAlignLast: "left",
+              }}
+            >
               A world where every organization—from startups to enterprises—can
               harness the full power of AI to solve their most challenging
               problems, make better decisions, and create exceptional

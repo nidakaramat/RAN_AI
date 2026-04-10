@@ -60,7 +60,7 @@ export default function IntelligentAI() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden  py-20 px-30 text-slate-900 " 
+      className="relative overflow-hidden  py-20 px-30 text-slate-900 "
     >
       {/* Background blurs */}
       <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/25 blur-3xl" />
@@ -146,7 +146,7 @@ export default function IntelligentAI() {
                 <motion.img
                   src={service.image}
                   alt={service.title}
-                  className="h-full w-full object-top transition-transform duration-300"
+                  className="h-full w-full object-cover object-top transition-transform duration-300"
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.4 }}
                 />
@@ -167,16 +167,19 @@ export default function IntelligentAI() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.15 + 0.3, duration: 0.5 }}
                 viewport={{ once: false }}
-                className="px-4 sm:px-5 md:px-6 py-4 sm:py-5 md:py-6"
+                className="px-4 sm:px-5 md:px-5 py-4 sm:py-5 md:py-8 ml-3"
               >
                 <motion.h3
-                  className="mb-2 sm:mb-3 text-lg sm:text-xl font-semibold text-[#080D42]"
+                  className="mb-2 sm:mb-3 text-lg sm:text-[30px] font-semibold text-[#080D42] "
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 200 }}
+                  style={{ fontFamily: "DM sans, sans-serif" }}
                 >
                   {service.title}
                 </motion.h3>
-                <p className="text-sm sm:text-base text-slate-900 leading-relaxed">
+                <p className="text-sm sm:text-[16px] text-slate-900 leading-relaxed"
+                
+                >
                   {service.description}
                 </p>
               </motion.div>

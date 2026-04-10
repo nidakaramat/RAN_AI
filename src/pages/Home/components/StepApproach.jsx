@@ -95,15 +95,25 @@ export default function FourStepApproach() {
   };
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20 bg-white text-slate-900">
+    <section
+      ref={ref}
+      className="py-12 sm:py-16 md:py-20 bg-white text-slate-900"
+    >
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false }}
-        variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } } }}
+        variants={{
+          visible: {
+            transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+          },
+        }}
       >
         <div className="mx-auto w-full max-w-6xl px-3 sm:px-4 md:px-6 lg:px-8">
-          <motion.div variants={headerVariants} className="mb-8 sm:mb-10 md:mb-12 text-center">
+          <motion.div
+            variants={headerVariants}
+            className="mb-8 sm:mb-10 md:mb-12 text-center"
+          >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -115,30 +125,42 @@ export default function FourStepApproach() {
                 Our Methodology
               </p>
             </motion.div>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               viewport={{ once: false }}
               className="mt-6 sm:mt-8 text-2xl sm:text-3xl md:text-4xl lg:text-[50px] font-medium"
-              style={{ fontFamily: "Geist, sans-serif", animation: "headingSlide 0.8s ease 0.3s both" }}
+              style={{
+                fontFamily: "Geist, sans-serif",
+                animation: "headingSlide 0.8s ease 0.3s both",
+              }}
             >
               A Proven 4-Step Approach
               <br />
-              to <motion.span 
+              to{" "}
+              <motion.span
                 className="text-[#123ABD] inline-block"
                 animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               >
                 Impactful AI
               </motion.span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               viewport={{ once: false }}
               className="mt-3 mx-auto max-w-2xl text-sm sm:text-base md:text-base lg:text-[22px] text-[#767676]"
+              style={{
+                fontFamily: "inter, sans-serif",
+                animation: "headingSlide 0.8s ease 0.3s both",
+              }}
             >
               A structured methodology designed to deliver measurable
               <br />
@@ -154,9 +176,13 @@ export default function FourStepApproach() {
                   key={step.id}
                   initial={{ opacity: 0, x: even ? 100 : -100, rotateX: -15 }}
                   whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
-                  transition={{ duration: 0.8, delay: idx * 0.2, type: "spring", stiffness: 70 }}
+                  transition={{
+                    duration: 0.8,
+                    delay: idx * 0.2,
+                    type: "spring",
+                    stiffness: 70,
+                  }}
                   viewport={{ once: false, margin: "-50px" }}
-                 
                   className={`flex flex-col gap-6 sm:gap-7 md:gap-8 rounded-3xl p-5 sm:p-6 md:p-8 md:flex-row ${even ? "md:flex-row-reverse" : ""}`}
                   style={{ perspective: 1000, transformStyle: "preserve-3d" }}
                 >
@@ -166,17 +192,20 @@ export default function FourStepApproach() {
                     transition={{ type: "spring", stiffness: 200 }}
                     style={{ perspective: 1000, transformStyle: "preserve-3d" }}
                   >
-                    <motion.div 
+                    <motion.div
                       className="flex items-center gap-2 sm:gap-3"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.2 + 0.1, duration: 0.5 }}
                       viewport={{ once: false }}
                     >
-                      <span className="text-sm sm:text-base md:text-lg font-semibold text-[#121ABD]">
+                      <span
+                        className="text-sm sm:text-base md:text-lg font-semibold text-[#121ABD]"
+                        style={{ fontFamily: "Geist, sans-serif" }}
+                      >
                         {step.number}
                       </span>
-                      <motion.span 
+                      <motion.span
                         className="h-[2px] bg-[#123ABD] w-5"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
@@ -184,31 +213,35 @@ export default function FourStepApproach() {
                         viewport={{ once: false }}
                         style={{ originX: 0 }}
                       />
-                      <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900"
-                        style={{ fontFamily: "Geist, sans-serif" }}>
+                      <h3
+                        className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900"
+                        style={{ fontFamily: "Geist, sans-serif" }}
+                      >
                         {step.title}
                       </h3>
                     </motion.div>
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: idx * 0.2 + 0.25, duration: 0.5 }}
                       viewport={{ once: false }}
                       className="mt-1 text-xs sm:text-sm font-medium text-slate-600 ml-10 sm:ml-12 md:ml-17"
+                      style={{ fontFamily: "inter, sans-serif" }}
                     >
                       {step.timeline}
                     </motion.p>
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: idx * 0.2 + 0.3, duration: 0.5 }}
                       viewport={{ once: false }}
-                      className="mt-2 text-sm sm:text-base text-[#767676]"
+                      className="mt-8 text-sm sm:text-[17px] text-[#767676]"
+                      style={{ fontFamily: "inter, sans-serif" }}
                     >
                       {step.description}
                     </motion.p>
 
-                    <motion.ul 
+                    <motion.ul
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: idx * 0.2 + 0.35, duration: 0.5 }}
@@ -216,16 +249,24 @@ export default function FourStepApproach() {
                       className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-slate-600"
                     >
                       {step.bullets.map((bullet, btnIdx) => (
-                        <motion.li 
-                          key={bullet} 
+                        <motion.li
+                          key={bullet}
                           className="flex gap-2"
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.2 + 0.4 + (btnIdx * 0.08), duration: 0.4 }}
+                          transition={{
+                            delay: idx * 0.2 + 0.4 + btnIdx * 0.08,
+                            duration: 0.4,
+                          }}
                           viewport={{ once: false }}
                         >
                           <span className="mt-2 inline-block h-1.5 w-1.5 rounded-full bg-[#767676]" />
-                          <span className="text-[#767676]">{bullet}</span>
+                          <span
+                            className="text-[#767676]"
+                            style={{ fontFamily: "inter, sans-serif" }}
+                          >
+                            {bullet}
+                          </span>
                         </motion.li>
                       ))}
                     </motion.ul>
@@ -233,9 +274,18 @@ export default function FourStepApproach() {
 
                   <motion.div
                     className="flex h-40 sm:h-48 md:h-58 lg:h-64 w-full flex-1 items-center justify-center rounded-2xl"
-                    initial={{ opacity: 0, scale: 0.8, rotateY: even ? -20 : 20 }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.8,
+                      rotateY: even ? -20 : 20,
+                    }}
                     whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-                    transition={{ duration: 0.8, delay: idx * 0.2 + 0.1, type: "spring", stiffness: 70 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: idx * 0.2 + 0.1,
+                      type: "spring",
+                      stiffness: 70,
+                    }}
                     viewport={{ once: false }}
                     whileHover={{
                       rotateY: even ? 8 : -8,

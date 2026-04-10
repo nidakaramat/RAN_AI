@@ -328,7 +328,10 @@ const Navbar = () => {
         </motion.a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#202020]">
+        <nav
+          className="hidden md:flex items-center gap-8 text-[16px] font-medium text-[#202020]"
+          style={{ fontFamily: "DM Sans, sans-serif" }}
+        >
           {navItems.map((item, i) => {
             const isActive = location.pathname === item.path;
             return (

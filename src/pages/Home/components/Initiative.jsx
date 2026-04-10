@@ -74,7 +74,7 @@ const Initiative = () => {
   };
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20 text-slate-900">
+    <section ref={ref} className="py-12 sm:py-16 md:py-20 text-slate-900 ">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -91,7 +91,7 @@ const Initiative = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: false }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold leading-tight "
             style={{ fontFamily: "Geist, sans-serif" }}
           >
             Why Most{" "}
@@ -135,7 +135,7 @@ const Initiative = () => {
           whileInView="visible"
           viewport={{ once: false }}
           variants={container}
-          className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6"
+          className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6  w-[1020px] mr-20"
         >
           {cards.map((card, index) => {
             const isLeftTop = index === 0 || index === 1;
@@ -160,7 +160,7 @@ const Initiative = () => {
                   boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)",
                 }}
                 style={{ perspective: 1000, transformStyle: "preserve-3d" }}
-                className="relative overflow-hidden rounded-[40px] border border-blue-200 bg-blue-50 shadow-sm transition h-50 p-4 sm:p-5 md:p-6 flex flex-col justify-between"
+                className="relative overflow-hidden rounded-[50px] border border-gray-300  shadow-sm transition h-[220px] w-[500px] p-4 sm:p-5 md:p-6 flex flex-col "
               >
                 {/* TOP CONTENT */}
                 <motion.div
@@ -171,7 +171,7 @@ const Initiative = () => {
                   viewport={{ once: false }}
                 >
                   <motion.h3
-                    className="text-sm sm:text-base md:text-lg font-semibold text-slate-900"
+                    className="text-sm sm:text-base md:text-[24px] font-semibold text-slate-900"
                     style={{ fontFamily: "DM Sans, sans-serif" }}
                     whileHover={{ x: isLeftTop ? 5 : -5 }}
                     transition={{ type: "spring", stiffness: 200 }}
@@ -179,11 +179,12 @@ const Initiative = () => {
                     {card.title}
                   </motion.h3>
                   <motion.p
-                    className=" text-xs sm:text-xs md:text-sm font-medium text-[#4B5162] "
+                    className=" text-xs sm:text-xs md:text-[14px] font-medium text-[#4B5162] "
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: index * 0.12 + 0.15, duration: 0.5 }}
                     viewport={{ once: false }}
+                    style={{ fontFamily: "inter, sans serif" }}
                   >
                     {card.subtitle}
                   </motion.p>
@@ -191,13 +192,16 @@ const Initiative = () => {
 
                 {/* DESCRIPTION */}
                 <motion.div
-                  className={`absolute bottom-6 ${isLeftTop ? "right-6 text-left" : "left-6 text-left"} max-w-[220px]`}
+                  className={`absolute bottom-6  ${isLeftTop ? "right-6 text-left mr-5 " : "left-6 text-left ml-1"} max-w-[220px]`}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.12 + 0.2, duration: 0.5 }}
                   viewport={{ once: false }}
                 >
-                  <p className="text-xs sm:text-sm md:text-sm leading-5 text-slate-600 ">
+                  <p
+                    className="text-xs sm:text-sm md:text-[13px] leading-5 text-slate-600 justify-center  "
+                    style={{ fontFamily: "inter, sans-serif" }}
+                  >
                     {card.description}
                   </p>
                 </motion.div>
