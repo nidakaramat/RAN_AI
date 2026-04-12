@@ -87,7 +87,7 @@ const BuildingAI = () => {
         <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl" />
         <div className="pointer-events-none absolute right-0 top-24 h-64 w-64 rounded-full blur-3xl" />
 
-        <div className="relative flex w-full flex-col-reverse gap-6 px-4 sm:gap-8 sm:px-6 md:gap-10 md:px-8 py-12 sm:py-16 md:py-20 lg:grid lg:grid-cols-2 lg:ml-19">
+        <div className="relative flex w-full min-w-0 flex-col-reverse gap-6 px-4 py-12 sm:gap-8 sm:px-6 sm:py-16 md:gap-10 md:px-8 md:py-20 lg:ml-19 lg:grid lg:grid-cols-2">
           {/* ── LEFT TEXT ── */}
           <div className="z-10 flex flex-col gap-8 text-left">
             <div className="flex gap-2">
@@ -199,7 +199,7 @@ const BuildingAI = () => {
 
           {/* ── RIGHT IMAGE ── */}
           <motion.div
-            className="relative flex items-center justify-end lg:pr-30 mt-8 lg:mt-40"
+            className="relative mt-8 flex min-w-0 items-center justify-center lg:mt-40 lg:justify-end lg:pr-30"
             initial={{ opacity: 0, x: 80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -207,7 +207,7 @@ const BuildingAI = () => {
             <motion.img
               src={Group}
               alt="AI Illustration"
-              className="h-[560px] w-auto object-contain translate-x-10 lg:translate-x-20"
+              className="h-auto max-h-[280px] w-full max-w-full object-contain translate-x-0 sm:max-h-[360px] sm:translate-x-4 md:max-h-[440px] md:translate-x-8 lg:h-[560px] lg:max-h-none lg:w-auto lg:translate-x-20"
               // 👇 floating animation
               animate={{ y: [0, -15, 0] }}
               transition={{

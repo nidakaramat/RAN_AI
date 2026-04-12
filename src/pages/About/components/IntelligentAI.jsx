@@ -38,10 +38,10 @@ const features = [
 
 const IntelligentAI = () => {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-15 px-25   ">
+    <section className="overflow-x-hidden bg-white py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          className="grid gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-33"
+          className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24 2xl:gap-32"
           style={{ fontFamily: "DM Sans, sans-serif" }}
         >
           <div className="space-y-6 h-full">
@@ -49,7 +49,7 @@ const IntelligentAI = () => {
               <FaHandsHoldingChild className="h-4 w-4" />
               Our Mission
             </span>
-            <h2 className="text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-15">
+            <h2 className="text-3xl font-medium leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
               Intelligent AI Systems
               <br />
               for Real Impact
@@ -101,7 +101,7 @@ const IntelligentAI = () => {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-33">
+        <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24 2xl:gap-32">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6 h-full">
             {/* Left side (2 small images) */}
             <div className="grid grid-rows-2 gap-5">
@@ -137,7 +137,7 @@ const IntelligentAI = () => {
               <FaHandsHoldingChild className="h-4 w-4" />
               Our Vision
             </span>
-            <h2 className="text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-[45px] leading-13">
+            <h2 className="text-3xl font-medium leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[45px]">
               AI Transforming Every
               <br />
               Industry Worldwide
@@ -159,9 +159,9 @@ const IntelligentAI = () => {
           </div>
         </div>
 
-        <div className="mt-30  p-8 sm:p-10">
-          <div className="max-w-3xl text-center mx-auto mb-10">
-            <p className="text-5xl font-medium text-black">
+        <div className="mt-12 p-6 sm:mt-16 sm:p-8 md:mt-20 md:p-10 lg:mt-24">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="text-2xl font-medium text-black sm:text-4xl lg:text-5xl">
               Our Core <span className="text-[#121ABD]">Values</span>
             </p>
             <h3 className="mt-4 text-3xl font-[10px] tracking-tight text-[#767676] sm:text-2xl">

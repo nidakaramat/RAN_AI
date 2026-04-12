@@ -21,15 +21,15 @@ const AIServices = () => {
           className="text-center"
         >
         <motion.span
-                  className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-1.5 rounded-full text-sm"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <BsStars className="h-4 w-4 mr-1" />
-                  Our Services
-                </motion.span>
+            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            <BsStars className="h-4 w-4 mr-1" />
+            Our Services  
+          </motion.span>
           <h1
             className="mt-7 text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             style={{ fontFamily: "Geist, sans-serif" }}

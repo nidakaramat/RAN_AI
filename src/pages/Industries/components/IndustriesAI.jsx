@@ -103,8 +103,8 @@ const imageVariants = {
 
 const IndustriesAI = () => {
   return (
-    <section className="w-full py-[2%] mb-10">
-      <div className="max-w-[1100px] mx-auto px-6">
+    <section className="mb-10 w-full overflow-x-hidden py-6 sm:py-[2%]">
+      <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
         {/* Heading */}
         <motion.h2
           className="text-center text-[24px] lg:text-[32px] font-semibold mb-[3%]"
@@ -122,8 +122,8 @@ const IndustriesAI = () => {
           {industries.map((item, index) => (
             <motion.div
               key={index}
-              className={`flex flex-col lg:flex-row items-start gap-[5%] ${
-                index % 2 !== 0 ? "lg:flex-row-reverse " : "ml-10 "
+              className={`flex flex-col items-start gap-[5%] lg:flex-row ${
+                index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:ml-10"
               }`}
               initial="hidden"
               whileInView="visible"

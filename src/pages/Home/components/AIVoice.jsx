@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import lizaImg from "../../../assets/images/AIVoice/liza.png";
@@ -5,6 +6,7 @@ import diegoImg from "../../../assets/images/AIVoice/diego.png";
 import ethanImg from "../../../assets/images/AIVoice/ethan.png";
 import aminaImg from "../../../assets/images/AIVoice/amina.png";
 import { BsStars } from "react-icons/bs";
+
 const AIVoice = () => {
   const agents = [
     { name: "Liza", role: "AI Employee", image: lizaImg },
@@ -28,8 +30,8 @@ const AIVoice = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: false }}
         >
-          <p className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 text-xs font-semibold shadow-xl text-gray-600">
-            <BsStars className="text-blue-500 text-sm" />
+          <p className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 text-[14px] font-semibold shadow-xl text-[#4B5162]" style={{ fontFamily: "inter, sans-serif" }}>
+            <BsStars className="text-[#121ABD] text-sm" />
             Voice AI Redirect
           </p>
         </motion.div>
@@ -39,7 +41,7 @@ const AIVoice = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: false }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-6 sm:mt-7 md:mt-8 font-medium tracking-tight text-slate-900"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-6 sm:mt-7 md:mt-10 font-medium tracking-tight text-slate-900"
           style={{ fontFamily: "Geist, sans-serif" }}
         >
           Looking for{" "}
@@ -51,12 +53,13 @@ const AIVoice = () => {
             AI Voice Agents?
           </motion.span>
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           viewport={{ once: false }}
-          className="mx-auto mt-3 sm:mt-4 md:mt-5 max-w-2xl text-xs sm:text-sm md:text-base lg:text-xl text-[#767676]"
+          className="mx-auto mt-3 sm:mt-4 md:mt-7 max-w-2xl text-xs sm:text-sm md:text-base lg:text-[20px] text-[#767676] font-medium"
           style={{ fontFamily: "inter, sans-serif" }}
         >
           Explore our dedicated AI voice platform built for
@@ -87,16 +90,19 @@ const AIVoice = () => {
                 rotateY: 8,
                 boxShadow: "0 20px 40px rgba(18, 58, 189, 0.25)",
               }}
-              className="relative overflow-hidden rounded-2xl cursor-pointer"
+              className="relative overflow-hidden rounded-2xl cursor-pointer min-w-0"
               style={{ transformStyle: "preserve-3d" }}
             >
               <motion.img
                 src={agent.image}
                 alt={agent.name}
-                className="h-56 sm:h-64 md:h-72 lg:h-80 w-full object-cover"
-                whileHover={{ scale: 1.1 }}
+                className="h-56 sm:h-64 md:h-72 lg:h-80 w-full object-cover object-center block"
+                whileHover={{
+                  scale: 1.1,
+                }}
                 transition={{ duration: 0.3 }}
               />
+
               <motion.div
                 className="absolute bottom-0 left-0 right-0 px-4 py-3 to-transparent"
                 initial={{ y: 20, opacity: 0 }}
@@ -117,7 +123,9 @@ const AIVoice = () => {
           className="mt-7 sm:mt-8 md:mt-10 lg:mt-10"
         >
           <motion.a
-            href="#"
+            href="http://ranvoice.com/"
+             target="_blank"
+             rel="noopener noreferrer"
             whileHover={{
               scale: 1.08,
               boxShadow: "0 15px 35px rgba(16, 2, 2, 0.4)",
@@ -137,4 +145,4 @@ const AIVoice = () => {
   );
 };
 
-export default AIVoice;
+export default AIVoice; 

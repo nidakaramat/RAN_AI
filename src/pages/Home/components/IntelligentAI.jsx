@@ -60,7 +60,7 @@ export default function IntelligentAI() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden  py-20 px-30 text-slate-900 "
+      className="relative overflow-x-hidden py-20 px-3 text-slate-900 sm:px-4 md:px-6 lg:px-8 xl:px-25"
     >
       {/* Background blurs */}
       <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/25 blur-3xl" />
@@ -82,9 +82,10 @@ export default function IntelligentAI() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: false }}
-            className="inline-flex items-center rounded-full bg-white border border-gray-200 px-5 py-2 text-xs font-semibold tracking-wide text-blue-600 shadow-lg gap-1"
+            className="inline-flex items-center rounded-full bg-white border border-gray-200 px-5 py-2 text-[15px] font-semibold tracking-wide text-blue-600 shadow-lg gap-1"
+            style={{ fontFamily: "inter, sans-serif" }}
           >
-            <BsStars className="w-3 h-3" /> {/* icon on the left */}
+            <BsStars className="w-4 h-4" /> {/* icon on the left */}
             Our Services
           </motion.span>
           <motion.h2
@@ -118,7 +119,7 @@ export default function IntelligentAI() {
         {/* Services Grid */}
         <motion.div
           variants={container}
-          className="grid gap-5 sm:gap-6 md:grid-cols-2 md:gap-8 lg:gap-8  "
+          className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 md:gap-8 lg:gap-8"
         >
           {services.map((service, idx) => (
             <motion.div
@@ -132,7 +133,7 @@ export default function IntelligentAI() {
                 stiffness: 80,
               }}
               viewport={{ once: false, margin: "-50px" }}
-              className="group relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl"
               whileHover={{
                 rotateY: 8,
                 rotateX: -5,

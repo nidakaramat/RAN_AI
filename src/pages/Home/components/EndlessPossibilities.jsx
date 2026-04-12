@@ -75,7 +75,7 @@ const EndlessPossibilities = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: false }}
-      className="min-h-screen py-15 px-6"
+      className="min-h-0 min-h-screen overflow-x-hidden px-4 py-10 sm:px-6 sm:py-12 md:py-14 lg:px-8 lg:py-16"
     >
       {/* Header */}
       <motion.div 
@@ -83,7 +83,7 @@ const EndlessPossibilities = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, margin: "-50px" }}
-        className="text-center mb-20"
+        className="mb-12 text-center sm:mb-16 md:mb-20"
         
       >
         <motion.div 
@@ -100,7 +100,7 @@ const EndlessPossibilities = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: false }}
-          className="text-5xl font-medium text-gray-900 mb-6"
+          className="mb-6 text-2xl font-medium text-gray-900 sm:text-4xl md:text-5xl"
           style={{ fontFamily: "Geist, sans-serif", animation: "headingSlide 0.8s ease 0.3s both" }}
         >
           Endless Possibilities
@@ -110,7 +110,7 @@ const EndlessPossibilities = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           viewport={{ once: false }}
-          className="text-xl text-gray-600 max-w-3xl mx-auto"
+          className="mx-auto max-w-3xl px-2 text-base text-gray-600 sm:text-lg md:text-xl"
         >
           Ran AI unifies your entire tech stack with secure, seamless
           integrations for
@@ -120,8 +120,8 @@ const EndlessPossibilities = () => {
       </motion.div>
 
       {/* Circle Section */}
-      <div className="flex justify-center items-center py-12 -mt-40 mb-20">
-        <div className="relative w-full max-w-3xl aspect-square">
+      <div className="-mt-16 mb-12 flex items-center justify-center py-8 sm:-mt-24 sm:mb-16 sm:py-10 md:-mt-32 md:mb-20 lg:-mt-40 lg:py-12">
+        <div className="relative aspect-square w-full max-w-3xl origin-center scale-[0.42] sm:scale-[0.55] md:scale-[0.72] lg:scale-90 xl:scale-100">
           {/* 🔄 ROTATING WRAPPER */}
           <div className="absolute -inset-8 animate-[spin_40s_linear_infinite]">
             {/* SVG Lines */}
@@ -206,7 +206,7 @@ const EndlessPossibilities = () => {
           {/* 🟢 CENTER LOGO (FIXED) */}
           <div className="absolute top-1/2 left-1/2 z-20 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-40 h-40 flex items-center justify-center">
-              <img src={RanLogo} alt="Ran AI Logo" className="h-30 w-30" />
+              <img src={RanLogo} alt="Ran AI Logo" className="h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32" />
             </div>
           </div>
         </div>

@@ -20,8 +20,8 @@ const AISolution = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center"
         >
-          <motion.span
-            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-1.5 rounded-full text-sm"
+         <motion.span
+            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}

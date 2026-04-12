@@ -20,7 +20,7 @@ const Industry = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-16 bg-white -mt-50"
+      className="max-lg:overflow-x-hidden bg-white py-16 lg:-mt-24 xl:-mt-32"
     >
       <div
         className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-center"
@@ -51,7 +51,7 @@ const Industry = () => {
           viewport={{ once: true }}
           className="mt-12 flex flex-col items-center gap-4"
         >
-          <div className="grid grid-cols-4 gap-2 justify-center space-y-2 ">
+          <div className="mx-auto grid w-full max-w-5xl grid-cols-1 justify-center gap-2 space-y-2 sm:grid-cols-2 lg:grid-cols-4">
             {industries.map((industry, idx) => (
               <motion.div
                 key={industry.label}
@@ -70,8 +70,8 @@ const Industry = () => {
                   rotateX: -5,
                   boxShadow: "0 15px 40px rgba(18, 58, 189, 0.3)",
                 }}
-                className={`flex h-12 w-full max-w-[220px] items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-5 py-6 text-sm font-semibold text-slate-800 shadow-sm transition
-        ${["", "", "", "", "col-start-2", "col-start-3"][idx]}`}
+                className={`flex h-12 w-full max-w-[220px] items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-5 py-6 text-sm font-semibold text-slate-800 shadow-sm transition sm:max-w-none
+        ${idx === 4 ? "lg:col-start-2" : idx === 5 ? "lg:col-start-3" : ""}`}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <motion.span

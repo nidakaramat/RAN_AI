@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import start from "../../../assets/images/industries/start.png";
+import { BsStars } from "react-icons/bs";
 
 const stats = [
   { value: "50+", label: "AI Systems Deployed" },
@@ -37,9 +38,16 @@ const StartupLunch = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center"
         >
-          <span className="inline-flex items-center rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-semibold text-[#1D4ED8] shadow-sm">
+           <motion.span
+            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            <BsStars className="h-4 w-4 mr-1" />
             Startup Launchpad
-          </span>
+          </motion.span>
           <h1
             className="mt-7 text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             style={{ fontFamily: "Geist, sans-serif" }}
@@ -63,14 +71,14 @@ const StartupLunch = () => {
           products with speed and clarity.
         </motion.p>
 
-        <div>
-          <button className="rounded-full bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] focus:ring-offset-2 mt-8 ml-110">
+        <div className="flex justify-center px-2 sm:justify-center sm:px-0 mr-24  mt-3">
+          <button className="mt-8 rounded-full bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] focus:ring-offset-2 lg:ml-16 xl:ml-24 2xl:ml-32 ">
             Book Free Consultation
           </button>
         </div>
 
         <motion.p
-          className="text-center text-medium text-4xl mt-8 "
+          className="mt-18 px-2 text-center text-2xl font-medium sm:text-3xl md:text-4xl"
           style={{ fontFamily: "Geist, sans-serif" }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +92,7 @@ const StartupLunch = () => {
 
        {/* Stats */}
       <motion.div
-        className="mt-12 max-w-[1050px] mx-auto grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        className="mt-15 max-w-[1050px] mx-auto grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         style={{ fontFamily: "Geist, sans-serif" }}
         initial="hidden"
         whileInView="visible"
@@ -97,7 +105,7 @@ const StartupLunch = () => {
         {stats.map((item, index) => (
           <motion.div
             key={item.label}
-            className="relative px-6 py-8 pl-8 text-left ml-12"
+            className="relative ml-4 px-4 py-8 pl-6 text-left sm:ml-8 sm:px-6 sm:pl-8 lg:ml-15"
             variants={itemVariants}
           >
             <span className="absolute left-0 top-1/2 h-16 w-px -translate-y-1/2 bg-slate-400"></span>
@@ -114,7 +122,7 @@ const StartupLunch = () => {
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 1, type: "spring", bounce: 0.3 }}
       >
-        <img src={start} alt="start" className="h-[40%] w-[76%]" />
+        <img src={start} alt="start" className="h-auto w-full max-w-5xl px-4 sm:max-w-6xl sm:px-6 lg:w-[76%] lg:max-w-none" />
       </motion.div>
     </motion.section>
   );

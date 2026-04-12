@@ -14,7 +14,8 @@ import ScrollToTop from "./Components/ScrollToTop";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <div className="overflow-x-hidden">
+       <BrowserRouter>
       <ScrollToTop />
       <Layout>
         <Routes>
@@ -29,6 +30,8 @@ const App = () => {
         </Routes>
       </Layout>
     </BrowserRouter>
+    </div>
+   
   );
 };
 

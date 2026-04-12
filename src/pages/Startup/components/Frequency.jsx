@@ -87,9 +87,9 @@ function FAQItem({ question, answer }) {
 
 export default function FAQ() {
   return (
-    <div className="bg-[#f2f1ef] min-h-screen flex flex-col items-center justify-center px-6 py-16">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#f2f1ef] px-4 py-12 sm:px-6 sm:py-16">
       <motion.h1
-        className="text-5xl font-medium text-gray-900 mb-10 text-center tracking-tight"
+        className="mb-8 px-2 text-center text-3xl font-medium tracking-tight text-gray-900 sm:mb-10 sm:text-4xl md:text-5xl"
         style={{ fontFamily: "Geist, sans-serif" }}
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}

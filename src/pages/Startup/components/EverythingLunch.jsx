@@ -210,7 +210,7 @@ const EverythingLunch = () => {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid gap-45 lg:grid-cols-3 justify-center mx-auto">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 justify-center gap-10 sm:gap-12 md:gap-16 lg:grid-cols-3 lg:gap-8 xl:gap-12">
             {services.map((item, index) => (
               <motion.div
                 key={index}
@@ -229,7 +229,7 @@ const EverythingLunch = () => {
                     },
                   },
                 }}
-                className="w-100 max-w-lg rounded-[50px] border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow ml-40"
+                className="mx-auto w-full max-w-lg rounded-[50px] border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8 lg:mx-0 lg:ml-8 xl:ml-16 2xl:ml-24"
               >
                 <div className="relative mb-5">
                   <div className="inline-block rounded-2xl bg-blue-50 p-3 text-2xl">

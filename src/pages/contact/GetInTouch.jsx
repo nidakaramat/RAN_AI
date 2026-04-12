@@ -109,10 +109,10 @@ import contactImg from "../../assets/images/industries/contact1.png";
 
 export default function GetInTouch() {
   return (
-    <section className="bg-white py-16 px-6">
+    <section className="overflow-x-hidden bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       {/* Heading */}
       <motion.h1
-        className="text-center text-5xl font-medium text-gray-900 mb-12"
+        className="mb-10 px-2 text-center text-3xl font-medium text-gray-900 sm:mb-12 sm:text-4xl md:text-5xl"
         style={{ fontFamily: "Geist, sans-serif" }}
         initial={{ opacity: 0, y: -50, scale: 0.9 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -122,10 +122,10 @@ export default function GetInTouch() {
         Get in touch
       </motion.h1>
 
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-12">
+      <div className="mx-auto flex max-w-5xl min-w-0 flex-col items-start gap-10 px-1 sm:gap-12 md:flex-row md:px-0">
         {/* Left: Form */}
         <motion.div
-          className="flex-1 w-full mt-5"
+          className="mt-5 w-full min-w-0 flex-1"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
@@ -133,7 +133,7 @@ export default function GetInTouch() {
         >
           {/* Row 1: Name + Company */}
           <motion.div
-            className="flex gap-4 mb-5"
+            className="mb-5 flex min-w-0 flex-col gap-4 sm:flex-row"
             variants={{
               hidden: { opacity: 0, x: -30 },
               visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -167,7 +167,7 @@ export default function GetInTouch() {
 
           {/* Row 2: Email + Mobile */}
           <motion.div
-            className="flex gap-4 mb-5"
+            className="mb-5 flex min-w-0 flex-col gap-4 sm:flex-row"
             variants={{
               hidden: { opacity: 0, x: -30 },
               visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },

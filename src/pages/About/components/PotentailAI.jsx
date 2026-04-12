@@ -33,7 +33,7 @@ const PotentailAI = () => {
 
         <div className="absolute inset-0"></div>
 
-        <div className="absolute inset-0 flex items-center px-6 md:px-16">
+        <div className="absolute inset-0 flex flex-col items-start gap-6 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between md:px-12 lg:px-16">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -79,7 +79,7 @@ const PotentailAI = () => {
             }}
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="px-5 py-2 rounded-full border border-purple-400 text-white bg-black ml-80 mt-40"
+            className="mt-4 shrink-0 self-start rounded-full border border-purple-400 bg-black px-5 py-2 text-white md:mt-28 md:self-end lg:mt-36 lg:ml-24 xl:ml-48 2xl:ml-72"
             style={{ fontFamily: "DM sans, sans-serif" }}
           >
             Why Choose Us
@@ -112,7 +112,7 @@ const PotentailAI = () => {
                 viewport={{ once: false }}
                 transition={{ delay: i * 0.2, duration: 0.6 }}
                 whileHover={{ scale: 1.05, rotateY: 10, rotateX: 5 }}
-                className="relative rounded-2xl overflow-hidden flex items-center justify-center h-[293px] w-[330px]"
+                className="relative mx-auto flex h-[293px] w-full max-w-[330px] items-center justify-center overflow-hidden rounded-2xl sm:w-[330px]"
               >
                 <motion.img
                   src={card.image}
@@ -144,21 +144,21 @@ const PotentailAI = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          className="relative -mt-20 rounded-2xl overflow-hidden py-10 px-20"
+          className="relative -mt-12 overflow-hidden rounded-2xl px-4 py-8 sm:-mt-16 sm:px-8 md:-mt-20 md:px-12 lg:px-20"
         >
           <motion.img
             src={img11}
-            className="w-auto h-59 object-cover ml-4"
+            className="ml-0 h-auto w-full max-w-full object-cover sm:ml-4 md:max-h-[14rem] lg:max-h-none"
             animate={{ scale: [1, 1.03, 1] }}
             transition={{ duration: 6, repeat: Infinity }}
           />
 
-          <div className="absolute inset-0 flex items-center justify-between">
+          <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:px-10 lg:px-16">
             <motion.p
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
-              className="text-white text-sm md:text-[30px] ml-40 font-medium text-start leading-10"
+              className="ml-0 max-w-xl text-start text-sm font-medium leading-snug text-white sm:text-base md:text-2xl lg:text-[30px] lg:leading-10 xl:ml-8 2xl:ml-16"
               style={{ fontFamily: "Geist, sans-serif" }}
             >
               Contact us if you have
@@ -170,7 +170,7 @@ const PotentailAI = () => {
               whileHover={{ scale: 1.1 }}
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="bg-white text-black px-6 py-3 rounded-full text-sm mr-50"
+              className="mr-0 shrink-0 rounded-full bg-white px-6 py-3 text-sm text-black md:mr-6 lg:mr-12 xl:mr-20"
             >
               Let's get in touch
             </motion.button>

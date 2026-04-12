@@ -113,8 +113,8 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="w-full py-[5%] bg-[#f8fafc]">
-      <div className="w-[90%] mx-auto text-center">
+    <section className="w-full overflow-x-hidden bg-[#f8fafc] py-8 sm:py-[4%] md:py-[5%]">
+      <div className="mx-auto w-full max-w-7xl px-3 text-center sm:w-[92%] sm:px-4 md:w-[90%] lg:px-6">
         <motion.span
           className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-1.5 rounded-full text-sm"
           initial={{ opacity: 0, y: -20 }}
@@ -127,7 +127,7 @@ const Services = () => {
         </motion.span>
 
         <motion.h2
-          className="text-[2.5vw] font-semibold mt-[2%]"
+          className="mt-4 text-2xl font-semibold sm:mt-[2%] sm:text-3xl md:text-4xl lg:text-[2.5vw] lg:leading-tight"
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
@@ -138,18 +138,18 @@ const Services = () => {
           Built for Scale
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[2%] mt-[4%] px-[8%]">
+        <div className="mt-6 grid grid-cols-1 gap-5 px-2 sm:mt-[4%] sm:grid-cols-2 sm:gap-6 sm:px-4 md:gap-[2%] md:px-[6%] lg:grid-cols-3 lg:px-[8%]">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="bg-white border border-gray-300 rounded-4xl p-[6%] text-left shadow-sm hover:shadow-md transition duration-300 ml-4"
+              className="ml-0 rounded-4xl border border-gray-300 bg-white p-5 text-left shadow-sm transition duration-300 hover:shadow-md sm:ml-2 sm:p-[5%] md:ml-4 md:p-[6%]"
               initial={{ opacity: 0, y: 60, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false }}
               transition={{ delay: index * 0.2, duration: 0.7 }}
             >
               <motion.div
-                className={`w-[3vw] h-[3vw] flex items-center justify-center rounded-xl ${service.bg} ${service.color} mb-[4%] text-[1.2vw]`}
+                className={`mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-lg sm:mb-[4%] sm:h-12 sm:w-12 md:text-xl lg:mb-[4%] lg:h-[3vw] lg:w-[3vw] lg:min-h-[2.75rem] lg:min-w-[2.75rem] lg:text-[1.2vw] ${service.bg} ${service.color}`}
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: false }}
@@ -159,7 +159,7 @@ const Services = () => {
               </motion.div>
 
               <motion.h3
-                className="text-[29px] font-medium leading-8 mb-[3%] mt-5"
+                className="mb-3 mt-4 text-xl font-medium leading-snug sm:mb-[3%] sm:mt-5 sm:text-2xl md:text-[26px] lg:mt-5 lg:text-[29px]"
                 style={{ fontFamily: "Geist, sans-serif" }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -194,7 +194,7 @@ const Services = () => {
                 {service.points.map((point, i) => (
                   <motion.li
                     key={i}
-                    className="text-[0.85vw] text-gray-600 flex items-start gap-[2%]"
+                    className="flex items-start gap-2 text-sm text-gray-600 sm:gap-[2%] sm:text-base lg:text-[0.85vw] lg:leading-snug xl:min-h-0"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false }}

@@ -208,8 +208,8 @@ const EnterpriseAI = () => {
       >
         <div className="pointer-events-none absolute right-0 top-20 h-64 w-64 rounded-full bg-indigo-200/30 blur-3xl" />
 
-        <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24">
-          <div className="relative overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20 backdrop-blur-sm">
+        <div className="mx-auto w-full min-w-0 max-w-7xl px-3 pb-16 sm:px-4 sm:pb-20 md:px-6 md:pb-24 lg:px-8">
+          <div className="relative overflow-x-hidden overflow-y-visible px-4 py-12 backdrop-blur-sm sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12">
             {/* ── Hero Text ── */}
             <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 sm:gap-6 text-center">
               {/* Heading */}
@@ -228,7 +228,7 @@ const EnterpriseAI = () => {
               {/* Paragraph */}
               <p
                 className="max-w-2xl text-sm sm:text-base md:text-base lg:text-lg text-slate-600"
-                style={{ animation: "fadeUp 0.8s ease 0.5s both" }}
+                style={{ animation: "fadeUp 0.8s ease 0.5s both", fontFamily: "inter, sans-serif" }}
               >
                 Ran AI designs, builds, and deploys custom AI systems that help
                 businesses automate operations, improve decision-making, and

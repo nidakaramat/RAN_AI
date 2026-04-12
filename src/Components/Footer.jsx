@@ -74,7 +74,7 @@ const Footer = ({variant}) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
         viewport={{ once: false }}
-        className="mx-auto w-full  max-w-6xl px-4 sm:px-6 md:px-8 lg:px-15 py-8 sm:py-10 md:py-12 ml-10"
+        className="mx-auto ml-0 w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:ml-10 lg:px-12"
       >
         <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-8 xl:grid-cols-4 ">
           {/* Logo & Description */}
@@ -83,7 +83,7 @@ const Footer = ({variant}) => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: false }}
-            className="space-y-5 xl:col-span-1   w-100"
+            className="w-full max-w-sm space-y-5 xl:col-span-1"
           >
             <motion.div
               className="flex items-center gap-3"
@@ -165,7 +165,7 @@ const Footer = ({variant}) => {
 
           {/* Links & Legal */}
           <motion.div
-            className="grid grid-cols-2 gap-6 sm:gap-8 md:gap-10 xl:col-span-2 md:ml-0 lg:ml-55"
+            className="grid grid-cols-2 gap-6 sm:gap-8 md:ml-0 md:gap-10 xl:col-span-2 lg:ml-12 xl:ml-20 2xl:ml-32"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -269,41 +269,43 @@ const Footer = ({variant}) => {
 
         {/* Footer Bottom */}
         <motion.div
-          className=" text-xs sm:text-sm text-slate-500 pt-6 -mt-4 sm:pt-8 sm:-mt-6 md:pt-10 md:-mt-8 flex flex-col sm:flex-row items-center justify-between"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          viewport={{ once: false }}
+  className="w-full px-4 sm:px-6 md:px-10 lg:px-16 pt-6 sm:pt-8 md:pt-10 flex flex-col items-end text-right"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6, delay: 0.5 }}
+  viewport={{ once: false }}
+>
+  {/* TEXT */}
+  <p
+    className="text-[#454545] text-[13px] sm:text-[14px] md:text-[15px]"
+    style={{ fontFamily: "DM Sans, sans-serif" }}
+  >
+    © 2025 Ran AI. All rights reserved.
+  </p>
+
+  {/* LINKS */}
+  <motion.div
+    className="flex flex-wrap justify-end gap-2 mt-2 text-[13px] sm:text-[14px]"
+    style={{ fontFamily: "DM Sans, sans-serif" }}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.6, delay: 0.6 }}
+    viewport={{ once: false }}
+  >
+    {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+      (item, idx) => (
+        <motion.span
+          key={idx}
+          whileHover={{ color: "#000" }}
+          className="flex items-center"
         >
-          <div className="md:ml-0 lg:ml-160 text-[#212121]">
-            <p
-              className="md:ml-0 lg:ml-30 text-[#454545] text-[14px] sm:text-[16px]"
-              style={{ fontFamily: "DM sans, sans-serif" }}
-            >
-              © 2025 Ran AI. All rights reserved.
-            </p>
-            <motion.div
-              className="flex gap-4 text-[#212121] text-[14px] sm:text-[14px] ml-1 mt-2"
-              style={{ fontFamily: "DM sans, sans-serif" }}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: false }}
-            >
-              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
-                (item, idx) => (
-                  <motion.span
-                    key={idx}
-                    whileHover={{ color: "#000" }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {item} {idx < 2 && <span className="mx-2">|</span>}
-                  </motion.span>
-                ),
-              )}
-            </motion.div>
-          </div>
-        </motion.div>
+          {item}
+          {idx < 2 && <span className="mx-2 text-gray-400">|</span>}
+        </motion.span>
+      )
+    )}
+  </motion.div>
+</motion.div>
       </motion.footer>
     </motion.div>
   );

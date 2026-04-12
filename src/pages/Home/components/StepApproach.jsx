@@ -120,8 +120,8 @@ export default function FourStepApproach() {
               transition={{ duration: 0.5 }}
               viewport={{ once: false }}
             >
-              <p className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-1 text-xs font-semibold shadow-md text-gray-600">
-                <BsStars className="text-blue-500 text-sm" />
+              <p className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-2 text-[14px] font-semibold shadow-md text-[#4B5162]" style={{ fontFamily: "inter, sans-serif" }}>
+                <BsStars className="text-[#121ABD] text-sm" />
                 Our Methodology
               </p>
             </motion.div>
@@ -225,7 +225,7 @@ export default function FourStepApproach() {
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: idx * 0.2 + 0.25, duration: 0.5 }}
                       viewport={{ once: false }}
-                      className="mt-1 text-xs sm:text-sm font-medium text-slate-600 ml-10 sm:ml-12 md:ml-17"
+                      className="mt-1 ml-6 text-xs font-medium text-slate-600 sm:ml-10 sm:text-sm md:ml-12 lg:ml-16"
                       style={{ fontFamily: "inter, sans-serif" }}
                     >
                       {step.timeline}
@@ -273,7 +273,7 @@ export default function FourStepApproach() {
                   </motion.div>
 
                   <motion.div
-                    className="flex h-40 sm:h-48 md:h-58 lg:h-64 w-full flex-1 items-center justify-center rounded-2xl"
+                    className="flex h-40 w-full flex-1 items-center justify-center rounded-2xl sm:h-48 md:h-56 lg:h-64"
                     initial={{
                       opacity: 0,
                       scale: 0.8,

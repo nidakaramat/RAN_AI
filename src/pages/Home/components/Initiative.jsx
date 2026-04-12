@@ -122,7 +122,8 @@ const Initiative = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: false }}
-            className="mt-3 sm:mt-4 mx-auto max-w-3xl text-sm sm:text-base md:text-base lg:text-lg text-slate-600"
+            className="mt-3 sm:mt-4 mx-auto max-w-3xl text-sm sm:text-base md:text-base lg:text-lg text-[#767676] font-medium"
+            style={{ fontFamily: "inter, sans-serif" }}
           >
             Despite widespread adoption, most AI initiatives fail to generate
             measurable business impact. Organizations commonly face the
@@ -135,7 +136,7 @@ const Initiative = () => {
           whileInView="visible"
           viewport={{ once: false }}
           variants={container}
-          className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6  w-[1020px] mr-20"
+          className="mx-auto grid w-full max-w-[1020px] gap-4 sm:gap-5 md:grid-cols-2 md:gap-x-18 md:gap-y-6"
         >
           {cards.map((card, index) => {
             const isLeftTop = index === 0 || index === 1;
@@ -154,13 +155,12 @@ const Initiative = () => {
                 }}
                 viewport={{ once: false, margin: "-30px" }}
                 whileHover={{
-                  rotateY: 8,
-                  rotateX: -5,
+                 
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)",
                 }}
                 style={{ perspective: 1000, transformStyle: "preserve-3d" }}
-                className="relative overflow-hidden rounded-[50px] border border-gray-300  shadow-sm transition h-[220px] w-[500px] p-4 sm:p-5 md:p-6 flex flex-col "
+                className="relative flex min-h-[220px] w-full max-w-[500px] flex-col overflow-hidden rounded-[50px] border border-gray-300 p-4 shadow-sm transition sm:p-5 md:h-[220px] md:w-[500px] md:p-6 "
               >
                 {/* TOP CONTENT */}
                 <motion.div
@@ -171,7 +171,7 @@ const Initiative = () => {
                   viewport={{ once: false }}
                 >
                   <motion.h3
-                    className="text-sm sm:text-base md:text-[24px] font-semibold text-slate-900"
+                    className="text-sm sm:text-base md:text-[24px] font-semibold text-slate-900 "
                     style={{ fontFamily: "DM Sans, sans-serif" }}
                     whileHover={{ x: isLeftTop ? 5 : -5 }}
                     transition={{ type: "spring", stiffness: 200 }}
@@ -219,7 +219,7 @@ const Initiative = () => {
                   viewport={{ once: false }}
                 >
                   <span
-                    className="text-[190px] leading-none font-light bg-gradient-to-t from-[#e8e8f1] to-blue-900 bg-clip-text text-transparent "
+                    className="bg-gradient-to-t from-[#e8e8f1] to-blue-900 bg-clip-text text-[100px] font-light leading-none text-transparent sm:text-[130px] md:text-[160px] lg:text-[190px]"
                     style={{ fontFamily: "Syne, sans-serif" }}
                   >
                     {card.number}

@@ -91,7 +91,7 @@ const IntelligentSystem = () => {
                   y.set(0);
                 }}
                 whileHover={{ scale: 1.06 }}
-                className="relative px-6 py-8 pl-8 text-left ml-12"
+                className="relative ml-4 px-4 py-8 pl-6 text-left sm:ml-8 sm:px-6 sm:pl-8 lg:ml-12"
               >
                 {/* Animated Vertical Line */}
                 <motion.span
