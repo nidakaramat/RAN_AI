@@ -18,14 +18,14 @@ const cards = [
 
 const PotentailAI = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-[#F0F4FF]">
       {/* HERO */}
       <section className="relative w-full h-[400px] md:h-[450px] overflow-hidden">
         <motion.img
           src={img7}
           alt="hero"
-          className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
+          className="w-full h-full object-cover scale-[1.1]"
+          initial={{ scale: 1.1 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: false }}
           transition={{ duration: 2 }}
@@ -33,7 +33,7 @@ const PotentailAI = () => {
 
         <div className="absolute inset-0"></div>
 
-        <div className="absolute inset-0 flex flex-col items-start gap-6 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between md:px-12 lg:px-16">
+        <div className="absolute inset-0 flex flex-col items-start gap-6 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-start md:gap-8 lg:gap-12 md:px-12 lg:px-26">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -50,7 +50,7 @@ const PotentailAI = () => {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.7 }}
-              className="text-2xl md:text-[40px] font-medium leading-snug"
+              className="text-2xl md:text-[40px] font-medium leading-10 lg:leading-12"
               style={{ fontFamily: "Geist, sans-serif" }}
             >
               Unlock the Full Potential of AI with Intelligent Systems Built for
@@ -63,7 +63,7 @@ const PotentailAI = () => {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.7 }}
-              className="mt-4 text-lg text-gray-200"
+              className="mt-6 text-lg text-gray-200"
               style={{ fontFamily: "DM sans, sans-serif" }}
             >
               Discover the Power of Intelligent AI Systems with Advanced
@@ -79,7 +79,7 @@ const PotentailAI = () => {
             }}
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="mt-4 shrink-0 self-start rounded-full border border-purple-400 bg-black px-5 py-2 text-white md:mt-28 md:self-end lg:mt-36 lg:ml-24 xl:ml-48 2xl:ml-72"
+            className="shrink-0 self-start rounded-full border border-purple-400 bg-black px-6 py-4 text-white mt-10 md:mt-60 ml-0 md:ml-6 lg:ml-60"
             style={{ fontFamily: "DM sans, sans-serif" }}
           >
             Why Choose Us
@@ -88,13 +88,13 @@ const PotentailAI = () => {
       </section>
 
       {/* CARDS */}
-      <section className="py-12 px-6 md:px-16 text-center">
+      <section className="py-12 px-6 md:px-16 text-center mt-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.7 }}
-          className="text-xl md:text-3xl font-semibold mb-8"
+          className="text-xl md:text-4xl lg:text-5xl font-semibold mb-8"
           style={{ fontFamily: "DM sans, sans-serif" }}
         >
           Explore How AI Transforms
@@ -144,12 +144,12 @@ const PotentailAI = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false }}
           transition={{ duration: 0.6 }}
-          className="relative -mt-12 overflow-hidden rounded-2xl px-4 py-8 sm:-mt-16 sm:px-8 md:-mt-20 md:px-12 lg:px-20"
+          className="relative -mt-12 overflow-hidden rounded-2xl px-4 py-8 sm:-mt-16 sm:px-8 md:-mt-20 md:px-12 lg:px-26"
         >
           <motion.img
             src={img11}
             className="ml-0 h-auto w-full max-w-full object-cover sm:ml-4 md:max-h-[14rem] lg:max-h-none"
-            animate={{ scale: [1, 1.03, 1] }}
+            // animate={{ scale: [1, 1.03, 1] }}
             transition={{ duration: 6, repeat: Infinity }}
           />
 
@@ -158,7 +158,7 @@ const PotentailAI = () => {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
-              className="ml-0 max-w-xl text-start text-sm font-medium leading-snug text-white sm:text-base md:text-2xl lg:text-[30px] lg:leading-10 xl:ml-8 2xl:ml-16"
+              className="ml-0 max-w-xl text-start text-sm font-medium leading-snug text-white sm:text-base md:text-2xl lg:text-[40px] lg:leading-12 xl:ml-20 2xl:ml-16"
               style={{ fontFamily: "Geist, sans-serif" }}
             >
               Contact us if you have

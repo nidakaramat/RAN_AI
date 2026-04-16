@@ -82,14 +82,14 @@ const BuildingAI = () => {
 
       <section
         ref={sectionRef}
-        className="relative overflow-hidden text-slate-900"
+        className="relative overflow-hidden text-slate-900 -mt-20 bg-[#F0F4FF]"
       >
         <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full blur-3xl" />
         <div className="pointer-events-none absolute right-0 top-24 h-64 w-64 rounded-full blur-3xl" />
 
-        <div className="relative flex w-full min-w-0 flex-col-reverse gap-6 px-4 py-12 sm:gap-8 sm:px-6 sm:py-16 md:gap-10 md:px-8 md:py-20 lg:ml-19 lg:grid lg:grid-cols-2">
+        <div className="relative flex w-full min-w-0 flex-col-reverse gap-6 px-4 py-12 sm:gap-8 sm:px-6 sm:py-16 md:gap-10 md:px-8 md:py-20 lg:ml-19 lg:grid lg:grid-cols-2 mt-30">
           {/* ── LEFT TEXT ── */}
-          <div className="z-10 flex flex-col gap-8 text-left">
+          <div className="z-10 flex flex-col gap-8 text-left ">
             <div className="flex gap-2">
               <span
                 className={visible ? "anim-0" : "opacity-0"}
@@ -159,41 +159,47 @@ const BuildingAI = () => {
             <div
               className={`${visible ? "anim-4" : "opacity-0"} flex flex-wrap gap-4 items-center`}
             >
-              <a
-                href="#services"
-                className="flex items-center gap-2 rounded-full px-7 py-4.5 text-sm font-semibold text-white hover:-translate-y-0.5 relative overflow-hidden"
-                style={{
-                  background: "#100202",
-                  color: "#fff",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 12px 26px rgba(66,102,255,0.45)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 10px 25px rgba(44,93,238,0.35)")
-                }
-              >
-                Explore Our Solutions
-                <ArrowRight className="w-4 h-4" />
+              <div className="relative z-0 mt-2 inline-flex sm:mt-3 pb-2">
                 <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-1/2 z-0 rounded-[28px] -mt-2"
                   style={{
-                    position: "absolute",
-                    bottom: "0",
-                    left: "0",
-                    width: "100%",
-                    height: "2px", // thickness of bottom line
+                    top: "23%",
+                    bottom: "5px",
+                    width: "calc(90% + 22px)",
+                    transform: "translateX(-50%)",
                     background:
-                      "linear-gradient(to right, #00ff00, #0000ff, #ff0000)",
-                    borderRadius: "9999px", // matches rounded-full button
-                    boxShadow: "0 2px 6px rgba(0,0,0,0.2)", // subtle glow
-                    pointerEvents: "none", // allows button click
+                      "linear-gradient(90deg,rgb(22, 248, 79) 10%,rgb(4, 54, 192) 50%,rgb(145, 7, 236) 30%)",
+                    filter: "blur(14px)",
+
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
                   }}
-                ></span>
-              </a>
+                />
+                <a
+                  href="#services"
+                  className="flex items-center gap-2 rounded-full px-7 py-4.5 text-sm font-semibold text-white hover:-translate-y-0.5 relative overflow-hidden"
+                  style={{
+                    background: "#100202",
+                    color: "#fff",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      "0 12px 26px rgba(66,102,255,0.45)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      "0 10px 25px rgba(44,93,238,0.35)")
+                  }
+                >
+                  Explore Our Solutions
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 

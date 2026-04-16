@@ -98,7 +98,7 @@ const EverythingLunch = () => {
   const [headerRef, headerControls] = useScrollAnimation();
 
   return (
-    <div className="bg-white -mt-10">
+    <div className="bg-[#F0F4FF] -mt-10">
       {/* Section 1: Everything You Need to Launch */}
       <section className="py-16 sm:py-20 md:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -210,7 +210,7 @@ const EverythingLunch = () => {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="mx-auto grid max-w-6xl grid-cols-1 justify-center gap-10 sm:gap-12 md:gap-16 lg:grid-cols-3 lg:gap-8 xl:gap-12">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:gap-8 md:gap-10 lg:grid-cols-3 lg:gap-8 xl:gap-10">
             {services.map((item, index) => (
               <motion.div
                 key={index}
@@ -229,7 +229,7 @@ const EverythingLunch = () => {
                     },
                   },
                 }}
-                className="mx-auto w-full max-w-lg rounded-[50px] border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8 lg:mx-0 lg:ml-8 xl:ml-16 2xl:ml-24"
+                className="w-90 rounded-[50px] border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:p-8 ml-50"
               >
                 <div className="relative mb-5">
                   <div className="inline-block rounded-2xl bg-blue-50 p-3 text-2xl">

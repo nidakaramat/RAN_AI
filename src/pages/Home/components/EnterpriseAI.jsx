@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 
 import React, { useRef } from "react";
-import bgImage from "../../../assets/images/bg.png";
+// import bgImage from "../../../assets/images/bg.png";
+import bgImage from "../../../assets/images/bg1.png";
 import img1 from "../../../assets/images/Mainsection/img1.png";
 import img2 from "../../../assets/images/Mainsection/img2.png";
 import img3 from "../../../assets/images/Mainsection/img3.png";
@@ -14,6 +15,7 @@ import img7 from "../../../assets/images/Mainsection/img7.png";
 import img8 from "../../../assets/images/Mainsection/img8.png";
 import img9 from "../../../assets/images/Mainsection/img9.png";
 import img10 from "../../../assets/images/Mainsection/img10.png";
+
 
 const clientImages = [img1, img2, img3, img4, img5];
 const overlayCards = [
@@ -66,7 +68,7 @@ const TiltCard = ({ card, l, idx, mounted }) => {
 
   return (
     <div
-      className="absolute bottom-0"
+      className="absolute bottom-0 "
       style={{
         width: `${l.width}px`,
         transform: mounted
@@ -194,237 +196,243 @@ const EnterpriseAI = () => {
         .card-float-4 { animation: floatY 5.8s ease-in-out 0.6s infinite; }
       `}</style>
 
-      <section
-        id="home"
-        className="relative overflow-hidden text-slate-800"
-        style={{
-          marginTop: "-80px",
-          paddingTop: "110px",
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="pointer-events-none absolute right-0 top-20 h-64 w-64 rounded-full bg-indigo-200/30 blur-3xl" />
+      <section id="home" className="relative overflow-hidden text-slate-800  ">
+        {/* BACKGROUND IMAGE */}
+        <div
+          className="
+    -mt-[90px]
+    pt-[110px]
+    h-290
+    bg-cover
+    bg-center
+    bg-no-repeat
+    bg-[#F0F4FF]
+    
+  "
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
+          <div className="pointer-events-none absolute right-0 top-20 h-64 w-64 rounded-full bg-indigo-200/30 blur-3xl" />
 
-        <div className="mx-auto w-full min-w-0 max-w-7xl px-3 pb-16 sm:px-4 sm:pb-20 md:px-6 md:pb-24 lg:px-8">
-          <div className="relative overflow-x-hidden overflow-y-visible px-4 py-12 backdrop-blur-sm sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12">
-            {/* ── Hero Text ── */}
-            <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 sm:gap-6 text-center">
-              {/* Heading */}
-              <h1
-                className="max-w-4xl text-xl sm:text-2xl md:text-4xl lg:text-5xl font-medium font-Geist leading-tight text-slate-900"
-               
-                style={{
-                  fontFamily: "Geist, sans-serif",
-                  animation: "headingSlide 0.8s ease 0.3s both",
-                }}
-              >
-                Enterprise <span className="text-[#121ABD]">AI Solutions</span>{" "}
-                That Deliver Real Results
-              </h1>
-
-              {/* Paragraph */}
-              <p
-                className="max-w-2xl text-sm sm:text-base md:text-base lg:text-lg text-slate-600"
-                style={{ animation: "fadeUp 0.8s ease 0.5s both", fontFamily: "inter, sans-serif" }}
-              >
-                Ran AI designs, builds, and deploys custom AI systems that help
-                businesses automate operations, improve decision-making, and
-                scale efficiently.
-              </p>
-
-              {/* CTA */}
-              <a
-                href="#services"
-                className="flex items-center gap-2 rounded-full px-5 sm:px-7 py-3 sm:py-4 mt-2 sm:mt-3 text-xs sm:text-sm font-semibold text-white hover:-translate-y-0.5 relative overflow-hidden"
-                style={{
-                  background: "#100202",
-                  color: "#fff",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 12px 26px rgba(66,102,255,0.45)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.boxShadow =
-                    "0 10px 25px rgba(44,93,238,0.35)")
-                }
-              >
-                Book Free Consultation
-                <span
+          <div className="mx-auto w-full min-w-0 max-w-7xl px-3 pb-16 sm:px-4 sm:pb-20 md:px-6 md:pb-24 lg:px-8">
+            <div className="relative overflow-x-hidden overflow-y-visible px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12">
+              {/* ── Hero Text ── */}
+              <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 sm:gap-6 text-center">
+                {/* Heading */}
+                <h1
+                  className="max-w-4xl text-xl sm:text-2xl md:text-4xl lg:text-[50px] font-medium font-Geist leading-tight text-slate-900 mt-18"
                   style={{
-                    position: "absolute",
-                    bottom: "0",
-                    left: "0",
-                    width: "100%",
-                    height: "2px", // thickness of bottom line
-                    background:
-                      "linear-gradient(to right, #00ff00, #0000ff, #ff0000)",
-                    borderRadius: "9999px", // matches rounded-full button
-                    boxShadow: "0 2px 6px rgba(0,0,0,0.2)", // subtle glow
-                    pointerEvents: "none", // allows button click
+                    fontFamily: "Geist, sans-serif",
+                    animation: "headingSlide 0.8s ease 0.3s both",
                   }}
-                ></span>
-              </a>
-            </div>
+                >
+                  Enterprise{" "}
+                  <span className="text-[#121ABD]">AI Solutions</span> That
+                  Deliver Real Results
+                </h1>
 
-            <div className="w-full flex justify-center mt-4 sm:mt-5 overflow-hidden">
-              {/* MAIN CONTAINER */}
-              <div className="hidden md:flex relative w-full max-w-[1300px] h-[320px] md:h-[380px] lg:h-[420px] items-end justify-center">
-                {overlayCards.map((card, idx) => {
-                  const layout = [
-                    {
-                      width: 250,
-                      height: 300,
-                      x: -390,
-                      y: 50,
-                      rotate: -1,
-                      scale: 0.9,
-                      z: 10,
-                    },
-                    {
-                      width: 300,
-                      height: 350,
-                      x: -240,
-                      y: 35,
-                      rotate: -4,
-                      scale: 0.95,
-                      z: 20,
-                    },
-                    {
-                      width: 340,
-                      height: 380,
-                      x: 0,
-                      y: 25,
-                      rotate: 0,
-                      scale: 1,
-                      z: 40,
-                    },
-                    {
-                      width: 330,
-                      height: 350,
-                      x: 240,
-                      y: 25,
-                      rotate: 2,
-                      scale: 0.95,
-                      z: 20,
-                    },
-                    {
-                      width: 210,
-                      height: 300,
-                      x: 420,
-                      y: 50,
-                      rotate: 4,
-                      scale: 0.9,
-                      z: 10,
-                    },
-                  ][idx];
+                {/* Paragraph */}
+                <p
+                  className="max-w-5xl text-sm sm:text-base md:text-base lg:text-lg mt-4 text-slate-600"
+                  style={{
+                    animation: "fadeUp 0.8s ease 0.5s both",
+                    fontFamily: "inter, sans-serif",
+                  }}
+                >
+                  Ran AI designs, builds, and deploys custom AI systems that
+                  help businesses automate operations, improve decision-making,
+                  and scale efficiently.
+                </p>
 
-                  return (
-                    <div
-                      key={idx}
-                      className="absolute bottom-0"
-                      style={{
-                        width: `${layout.width}px`,
-                        transform: `
+                {/* CTA — pill button + blurred neon glow (bottom only, follows pill curve) */}
+                <div className="relative z-0 mt-4 inline-flex sm:mt-3 pb-2">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute left-1/2 z-0 rounded-[28px] -mt-2"
+                    style={{
+                      top: "23%",
+                      bottom: "5px",
+                      width: "calc(90% + 22px)",
+                      transform: "translateX(-50%)",
+                      background:
+                        "linear-gradient(90deg,rgb(22, 248, 79) 10%,rgb(4, 54, 192) 50%,rgb(145, 7, 236) 30%)",
+                      filter: "blur(14px)",
+
+                      maskImage:
+                        "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+                      WebkitMaskImage:
+                        "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+                    }}
+                  />
+                  <a
+                    href="#services"
+                    className="relative z-10 flex items-center gap-2 rounded-full border-0 px-5 py-3 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 sm:px-7 sm:py-4 sm:text-sm"
+                    style={{
+                      background: "#0a0a0b",
+                      color: "#fff",
+                      cursor: "pointer",
+                      fontFamily: "Inter, sans-serif",
+                      boxShadow: "none",
+                    }}
+                  >
+                    Book Free Consultation
+                  </a>
+                </div>
+              </div>
+
+              <div className="w-full flex justify-center mt-4 sm:mt-30 overflow-hidden">
+                {/* MAIN CONTAINER */}
+                <div className="hidden md:flex relative w-full max-w-[1300px] h-[320px] md:h-[380px] lg:h-[420px] items-end justify-center">
+                  {overlayCards.map((card, idx) => {
+                    const layout = [
+                      {
+                        width: 250,
+                        height: 300,
+                        x: -390,
+                        y: 50,
+                        rotate: -1,
+                        scale: 0.9,
+                        z: 10,
+                      },
+                      {
+                        width: 300,
+                        height: 350,
+                        x: -240,
+                        y: 35,
+                        rotate: -4,
+                        scale: 0.95,
+                        z: 20,
+                      },
+                      {
+                        width: 340,
+                        height: 380,
+                        x: 0,
+                        y: 25,
+                        rotate: 0,
+                        scale: 1,
+                        z: 40,
+                      },
+                      {
+                        width: 330,
+                        height: 350,
+                        x: 240,
+                        y: 25,
+                        rotate: 2,
+                        scale: 0.95,
+                        z: 20,
+                      },
+                      {
+                        width: 210,
+                        height: 300,
+                        x: 420,
+                        y: 50,
+                        rotate: 4,
+                        scale: 0.9,
+                        z: 10,
+                      },
+                    ][idx];
+
+                    return (
+                      <div
+                        key={idx}
+                        className="absolute bottom-0"
+                        style={{
+                          width: `${layout.width}px`,
+                          transform: `
           translateX(${layout.x}px)
           translateY(${layout.y}px)
           rotate(${layout.rotate}deg)
           scale(${layout.scale})
         `,
-                        zIndex: layout.z,
-                        perspective: "1000px",
-                      }}
-                    >
-                      <motion.div
-                        className="relative overflow-hidden rounded-[28px] bg-white/5"
-                        style={{ transformStyle: "preserve-3d" }}
-                        initial={{
-                          opacity: 0,
-                          y: idx % 2 === 0 ? 90 : -90,
-                          rotateX: idx % 2 === 0 ? 24 : -24,
-                          rotateZ: idx % 2 === 0 ? -8 : 8,
-                          skewY: idx % 2 === 0 ? 6 : -6,
-                          scale: 0.9,
-                        }}
-                        whileInView={{
-                          opacity: 1,
-                          y: 0,
-                          rotateX: 0,
-                          rotateZ: 0,
-                          skewY: 0,
-                          scale: 1,
-                        }}
-                        whileHover={{
-                          y: -10,
-                          rotateX: 2,
-                          rotateY: idx % 2 === 0 ? 8 : -8,
-                          scale: 1.03,
-                        }}
-                        viewport={{ once: false, margin: "-80px" }}
-                        transition={{
-                          duration: 1,
-                          delay: idx * 0.08,
-                          type: "spring",
-                          stiffness: 100,
-                          damping: 18,
+                          zIndex: layout.z,
+                          perspective: "1000px",
                         }}
                       >
-                        {/* IMAGE with dynamic height */}
+                        <motion.div
+                          className="relative overflow-hidden rounded-[28px] "
+                          style={{ transformStyle: "preserve-3d" }}
+                          initial={{
+                            opacity: 0,
+                            y: idx % 2 === 0 ? 90 : -90,
+                            rotateX: idx % 2 === 0 ? 24 : -24,
+                            rotateZ: idx % 2 === 0 ? -8 : 8,
+                            skewY: idx % 2 === 0 ? 6 : -6,
+                            scale: 0.9,
+                          }}
+                          whileInView={{
+                            opacity: 1,
+                            y: 0,
+                            rotateX: 0,
+                            rotateZ: 0,
+                            skewY: 0,
+                            scale: 1,
+                          }}
+                          whileHover={{
+                            y: -10,
+                            rotateX: 2,
+                            rotateY: idx % 2 === 0 ? 8 : -8,
+                            scale: 1.03,
+                          }}
+                          viewport={{ once: false, margin: "-80px" }}
+                          transition={{
+                            duration: 1,
+                            delay: idx * 0.08,
+                            type: "spring",
+                            stiffness: 100,
+                            damping: 18,
+                          }}
+                        >
+                          {/* IMAGE with dynamic height */}
+                          <img
+                            src={card.image}
+                            alt={card.label}
+                            className="w-full h-auto block"
+                            style={{
+                              maxHeight: `${layout.height}px`,
+                              transform: "translateZ(0)",
+                            }}
+                          />
+
+                          {/* LABEL */}
+                          <span
+                            className={`absolute top-4 ${idx < 2 ? "left-4" : "right-4"} bg-white text-black mt-2 px-3 py-1 text-[12px] font-semibold rounded-full shadow`}
+                          >
+                            {card.label}
+                          </span>
+                        </motion.div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* MOBILE */}
+                <div className="flex md:hidden gap-3 sm:gap-4 overflow-x-auto px-3 sm:px-4 w-full">
+                  {overlayCards.map((card, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="min-w-[240px] rounded-2xl overflow-hidden shadow-lg"
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, margin: "-80px" }}
+                      transition={{
+                        duration: 0.7,
+                        delay: idx * 0.08,
+                        type: "spring",
+                        stiffness: 120,
+                      }}
+                    >
+                      <div className="relative">
                         <img
                           src={card.image}
                           alt={card.label}
-                          className="w-full h-auto block"
-                          style={{
-                            maxHeight: `${layout.height}px`,
-                            transform: "translateZ(0)",
-                          }}
+                          className="h-[300px] w-full object-cover"
                         />
-
-                        {/* LABEL */}
-                        <span
-                          className={`absolute top-4 ${idx < 2 ? "left-4" : "right-4"} bg-white text-black mt-2 px-3 py-1 text-[12px] font-semibold rounded-full shadow`}
-                        >
+                        <span className="absolute top-3 left-3 bg-white/90 px-3 py-1 text-xs font-semibold rounded-full shadow">
                           {card.label}
                         </span>
-                      </motion.div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* MOBILE */}
-              <div className="flex md:hidden gap-3 sm:gap-4 overflow-x-auto px-3 sm:px-4 w-full">
-                {overlayCards.map((card, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="min-w-[240px] rounded-2xl overflow-hidden shadow-lg"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, margin: "-80px" }}
-                    transition={{
-                      duration: 0.7,
-                      delay: idx * 0.08,
-                      type: "spring",
-                      stiffness: 120,
-                    }}
-                  >
-                    <div className="relative">
-                      <img
-                        src={card.image}
-                        alt={card.label}
-                        className="h-[300px] w-full object-cover"
-                      />
-                      <span className="absolute top-3 left-3 bg-white/90 px-3 py-1 text-xs font-semibold rounded-full shadow">
-                        {card.label}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

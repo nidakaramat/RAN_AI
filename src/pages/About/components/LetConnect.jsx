@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const LetConnect = () => {
   return (
     <div>
-      <section className="overflow-x-hidden px-4 py-16 sm:px-6 md:px-12 lg:px-16 ">
+      <section className="overflow-x-hidden px-4 py-16 sm:px-6 md:px-12 lg:px-16 bg-[#F0F4FF] ">
         <motion.div
           className="flex flex-col items-start gap-8 text-center md:flex-row md:items-center    md:gap-12 md:text-left lg:gap-20 xl:gap-28"
           initial="hidden"

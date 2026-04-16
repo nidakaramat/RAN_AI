@@ -22,7 +22,7 @@ const EndlessPossibilities = () => {
   const integrations = [
     {
       name: (
-        <span className="inline-flex items-center text-gray-600">
+        <span className="inline-flex items-center text-gray-600 ">
           HubSp <FaHubspot className="text-orange-500 h-5 w-5" /> t
         </span>
       ),
@@ -70,23 +70,22 @@ const EndlessPossibilities = () => {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: false }}
-      className="min-h-0 min-h-screen overflow-x-hidden px-4 py-10 sm:px-6 sm:py-12 md:py-14 lg:px-8 lg:py-16"
+      className="min-h-0 min-h-screen overflow-x-hidden px-4 py-10 sm:px-6 sm:py-12 md:py-14 lg:px-8 lg:py-16 bg-[#F0F4FF]"
     >
       {/* Header */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false, margin: "-50px" }}
         className="mb-12 text-center sm:mb-16 md:mb-20"
-        
       >
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -95,17 +94,20 @@ const EndlessPossibilities = () => {
         >
           Integrations
         </motion.div>
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: false }}
           className="mb-6 text-2xl font-medium text-gray-900 sm:text-4xl md:text-5xl"
-          style={{ fontFamily: "Geist, sans-serif", animation: "headingSlide 0.8s ease 0.3s both" }}
+          style={{
+            fontFamily: "Geist, sans-serif",
+            animation: "headingSlide 0.8s ease 0.3s both",
+          }}
         >
           Endless Possibilities
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
@@ -206,7 +208,11 @@ const EndlessPossibilities = () => {
           {/* 🟢 CENTER LOGO (FIXED) */}
           <div className="absolute top-1/2 left-1/2 z-20 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-40 h-40 flex items-center justify-center">
-              <img src={RanLogo} alt="Ran AI Logo" className="h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32" />
+              <img
+                src={RanLogo}
+                alt="Ran AI Logo"
+                className="h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32"
+              />
             </div>
           </div>
         </div>

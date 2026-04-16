@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import img1 from "../../../assets/images/industries/img1.png";
 import { BsStars } from "react-icons/bs";
+import bgImage from "../../../assets/images/bg1.png";
 
 const AISolution = () => {
   return (
@@ -10,9 +11,23 @@ const AISolution = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className=" py-12 sm:py-16 md:py-20"
+      className="
+      relative
+      w-screen
+      min-h-screen
+      -mt-[90px]
+      pt-[110px]
+      bg-cover
+      bg-center
+      bg-no-repeat
+      flex flex-col justify-center
+      bg-[#F0F4FF]
+    "
+          style={{ backgroundImage: `url(${bgImage})` }}
+        
+
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-30 ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +75,7 @@ const AISolution = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="mx-auto mt-10 max-w-3xl text-center text-medium leading-8 text-[#767676] sm:text-[20px] lg:text-[21px]"
+          className="mx-auto mt-10 max-w-3xl text-center text-medium leading-8 text-[#767676] sm:text-[20px] lg:text-[21px] mb-10"
         >
           Ran AI designs and deploys AI systems tailored to the workflows,
           compliance requirements, and operational challenges of different

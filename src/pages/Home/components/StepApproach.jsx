@@ -97,7 +97,7 @@ export default function FourStepApproach() {
   return (
     <section
       ref={ref}
-      className="py-12 sm:py-16 md:py-20 bg-white text-slate-900"
+      className="py-12 sm:py-16 md:py-20 bg-[#F0F4FF] text-slate-900  "
     >
       <motion.div
         initial="hidden"
@@ -109,7 +109,7 @@ export default function FourStepApproach() {
           },
         }}
       >
-        <div className="mx-auto w-full max-w-6xl px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl px-3 sm:px-4 md:px-6 lg:px-8 ">
           <motion.div
             variants={headerVariants}
             className="mb-8 sm:mb-10 md:mb-12 text-center"
@@ -120,7 +120,10 @@ export default function FourStepApproach() {
               transition={{ duration: 0.5 }}
               viewport={{ once: false }}
             >
-              <p className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-2 text-[14px] font-semibold shadow-md text-[#4B5162]" style={{ fontFamily: "inter, sans-serif" }}>
+              <p
+                className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-2 text-[14px] font-semibold shadow-md text-[#4B5162]"
+                style={{ fontFamily: "inter, sans-serif" }}
+              >
                 <BsStars className="text-[#121ABD] text-sm" />
                 Our Methodology
               </p>
@@ -183,7 +186,7 @@ export default function FourStepApproach() {
                     stiffness: 70,
                   }}
                   viewport={{ once: false, margin: "-50px" }}
-                  className={`flex flex-col gap-6 sm:gap-7 md:gap-8 rounded-3xl p-5 sm:p-6 md:p-8 md:flex-row ${even ? "md:flex-row-reverse" : ""}`}
+                  className={`flex flex-col gap-6 sm:gap-7 md:gap-8 rounded-3xl p-5 sm:p-6 md:p-12 md:flex-row ${even ? "md:flex-row-reverse" : ""}`}
                   style={{ perspective: 1000, transformStyle: "preserve-3d" }}
                 >
                   <motion.div
@@ -273,7 +276,7 @@ export default function FourStepApproach() {
                   </motion.div>
 
                   <motion.div
-                    className="flex h-40 w-full flex-1 items-center justify-center rounded-2xl sm:h-48 md:h-56 lg:h-64"
+                    className="flex h-40 w-100 md:w-120 lg:w-150 flex-1 items-center justify-center rounded-2xl sm:h-48 md:h-56 lg:h-65"
                     initial={{
                       opacity: 0,
                       scale: 0.8,
@@ -298,9 +301,9 @@ export default function FourStepApproach() {
                     <motion.img
                       src={step.image}
                       alt={step.title}
-                      className="h-full w-full object-contain rounded-2xl"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.3 }}
+                      className="h-full w-[120px] sm:w-[150px] md:w-[180px] lg:w-full object-contain rounded-2xl mr-6"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
                     />
                   </motion.div>
                 </motion.div>

@@ -30,7 +30,7 @@ const data = [
 
 const CoreCapabilities = () => {
   return (
-    <section className="relative min-h-[min(100vh,720px)] w-full overflow-hidden py-12 sm:min-h-[60vh] sm:py-0 lg:h-[60vh] lg:min-h-0 lg:py-0">
+    <section className="relative min-h-[min(100vh,720px)] w-full overflow-hidden py-12 sm:min-h-[60vh] sm:py-0 lg:h-[60vh] lg:min-h-0 lg:py-0 bg-[#F0F4FF]">
       {/* Background Image */}
       <motion.img
         src={img7}
@@ -85,7 +85,6 @@ const CoreCapabilities = () => {
               {/* Title */}
               <motion.h3
                 className="mt-3 text-lg font-semibold sm:mt-5 lg:text-[1.6vw] lg:leading-tight"
-                
                 style={{ fontFamily: "DM sans, sans-serif" }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

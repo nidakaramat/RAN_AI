@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import service from "../../../assets/images/about/service.png";
 import { BsStars } from "react-icons/bs";
-
+import bgImage from "../../../assets/images/bg1.png";
 const AIServices = () => {
   return (
     <motion.section
@@ -10,9 +10,22 @@ const AIServices = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="bg-[#F8FAFF] py-12 sm:py-16 md:py-20"
+           className="
+        relative
+        w-screen
+        min-h-screen
+        -mt-[90px]
+        pt-[110px]
+        bg-cover
+        bg-center
+        bg-no-repeat
+        flex flex-col justify-center
+        bg-[#F0F4FF]
+      "
+            style={{ backgroundImage: `url(${bgImage})` }}
+          
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-30 ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +58,7 @@ const AIServices = () => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 140 }}
-            className="w-full overflow-hidden  sm:w-[94%] md:w-[88%] lg:w-[92%]"
+            className="w-full overflow-hidden  sm:w-[94%] md:w-[88%] lg:w-[90%]"
           >
             <img
               src={service}
@@ -60,7 +73,7 @@ const AIServices = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="mx-auto mt-10 max-w-3xl text-center text-medium leading-8 text-[#767676] sm:text-[20px] lg:text-[21px]"
+          className="mx-auto mt-10 max-w-3xl text-center text-medium leading-8 text-[#767676] sm:text-[20px] lg:text-[21px] mb-10"
         >
           Ran AI provides end-to-end AI services focused on building
           <br /> reliable,

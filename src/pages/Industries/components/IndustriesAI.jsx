@@ -103,7 +103,7 @@ const imageVariants = {
 
 const IndustriesAI = () => {
   return (
-    <section className="mb-10 w-full overflow-x-hidden py-6 sm:py-[2%]">
+    <section className=" w-full py-6 sm:py-[5%] md:py-[10%] lg:py-[10%] bg-[#F0F4FF]">
       <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
         {/* Heading */}
         <motion.h2

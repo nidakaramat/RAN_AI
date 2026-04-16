@@ -20,7 +20,7 @@ const Industry = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="max-lg:overflow-x-hidden bg-white py-16 lg:-mt-24 xl:-mt-32"
+      className="max-lg:overflow-x-hidden  py-16 lg:-mt-24 xl:-mt-32 bg-[#F0F4FF]"
     >
       <div
         className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 text-center"

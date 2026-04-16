@@ -38,8 +38,8 @@ const features = [
 
 const IntelligentAI = () => {
   return (
-    <section className="overflow-x-hidden bg-white py-16 sm:py-20">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="overflow-x-hidden  py-16 sm:py-20 bg-[#F8FAFF]">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-25">
         <div
           className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-24 2xl:gap-32"
           style={{ fontFamily: "DM Sans, sans-serif" }}
@@ -55,12 +55,12 @@ const IntelligentAI = () => {
               for Real Impact
             </h2>
             <p
-              className="max-w-screen-sm text-sm sm:text-[19px] leading-relaxed  text-slate-600"
+              className="max-w-[520px] sm:max-w-[600px] lg:max-w-[650px] 
+             text-sm sm:text-[18px] lg:text-[20px] 
+             leading-[1.7] text-slate-600 
+             text-left lg:text-justify"
               style={{
                 fontFamily: "DM Sans, sans-serif",
-                wordSpacing: "normal",
-                letterSpacing: "0",
-                textAlignLast: "left",
               }}
             >
               To empower organizations with intelligent AI systems that augment
@@ -143,12 +143,12 @@ const IntelligentAI = () => {
               Industry Worldwide
             </h2>
             <p
-              className="max-w-screen-sm text-sm sm:text-[20px] leading-relaxed  text-slate-600"
+              className="max-w-[520px] sm:max-w-[600px] lg:max-w-[650px] 
+             text-sm sm:text-[18px] lg:text-[20px] 
+             leading-[1.7] text-slate-600 
+             text-left lg:text-justify"
               style={{
                 fontFamily: "DM Sans, sans-serif",
-                wordSpacing: "normal",
-                letterSpacing: "0",
-                textAlignLast: "left",
               }}
             >
               A world where every organization—from startups to enterprises—can

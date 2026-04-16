@@ -74,7 +74,10 @@ const Initiative = () => {
   };
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20 text-slate-900 ">
+    <section
+      ref={ref}
+      className="py-12 sm:py-16 md:py-20 text-slate-900 bg-[#F0F4FF] "
+    >
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -155,7 +158,6 @@ const Initiative = () => {
                 }}
                 viewport={{ once: false, margin: "-30px" }}
                 whileHover={{
-                 
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(59, 130, 246, 0.2)",
                 }}

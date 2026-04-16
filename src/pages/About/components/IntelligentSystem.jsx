@@ -34,7 +34,7 @@ const itemVariants = {
 
 const IntelligentSystem = () => {
   return (
-    <section className="bg-gray-100 py-16 sm:py-20">
+    <section className="bg-gray-100 py-16 sm:py-20 ">
       <motion.div
         className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 50 }}

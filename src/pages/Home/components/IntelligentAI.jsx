@@ -60,7 +60,7 @@ export default function IntelligentAI() {
   return (
     <section
       ref={ref}
-      className="relative overflow-x-hidden py-20 px-3 text-slate-900 sm:px-4 md:px-6 lg:px-8 xl:px-25"
+      className="relative overflow-x-hidden py-20 px-3 text-slate-900 sm:px-4 md:px-6 lg:px-8 xl:px-25 bg-[#F0F4FF]"
     >
       {/* Background blurs */}
       <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/25 blur-3xl" />
@@ -178,9 +178,7 @@ export default function IntelligentAI() {
                 >
                   {service.title}
                 </motion.h3>
-                <p className="text-sm sm:text-[16px] text-slate-900 leading-relaxed"
-                
-                >
+                <p className="text-sm sm:text-[16px] text-slate-900 leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -188,12 +186,12 @@ export default function IntelligentAI() {
           ))}
         </motion.div>
       </motion.div>
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <button className="mt-8 sm:mt-10 md:mt-12 inline-flex items-center rounded-full bg-[#100202] px-6 sm:px-8 py-3 text-xs sm:text-sm font-semibold text-white shadow-[0_10px_25px_rgba(44,93,238,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_26px_rgba(66,102,255,0.45)] gap-2">
           See More
           <ArrowRight className="w-4 h-4" />
         </button>
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
       {children}
       {/* Contact page  footer hide */}
       <Footer
-        variant={pathname.startsWith("/contact") ? "contact" : "default"}
+        variant={pathname.startsWith("/contact") ? "contact" : "default " }
       />
     </>
   );

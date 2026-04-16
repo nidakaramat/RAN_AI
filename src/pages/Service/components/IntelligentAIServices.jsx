@@ -113,7 +113,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="w-full overflow-x-hidden bg-[#f8fafc] py-8 sm:py-[4%] md:py-[5%]">
+    <section className="w-full overflow-x-hidden bg-[#F0F4FF] py-8 sm:py-[4%] md:py-[5%]">
       <div className="mx-auto w-full max-w-7xl px-3 text-center sm:w-[92%] sm:px-4 md:w-[90%] lg:px-6">
         <motion.span
           className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-1.5 rounded-full text-sm"

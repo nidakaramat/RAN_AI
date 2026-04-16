@@ -13,9 +13,9 @@ const products = [
   {
     id: 1,
     image: img1,
-    title: "Crickit App",
+    title: "Smart Mail AI",
     description:
-      "Crickit is a unified cricket platform connecting players, clubs, & admins, streamlining management, match tracking, and performance insights.",
+      "An automated marketplace matching warehouse buyers and sellers in real time, enabling smart search, dynamic pricing, and secure end-to-end deal execution.",
   },
   {
     id: 2,
@@ -27,36 +27,36 @@ const products = [
   {
     id: 3,
     image: img3,
-    title: "See Vitals",
+    title: "Crickit App",
     description:
-      "SeeVitals is a remote patient monitoring solution integrating hardware and software to track, analyze, & generate timely alerts, improving patient outcomes & care efficiency.",
+      "Crickit is a unified cricket platform connecting players, clubs, & admins, streamlining management, match tracking, and performance insights.",
   },
   {
     id: 4,
     image: img4,
-    title: "Synaptix Healthcare",
+    title: "See Vitals",
     description:
-      "Synaptix is a real-time care management app connecting patients & providers, enabling monitoring, alerts, & coordination to improve outcomes & timely interventions.",
+      "SeeVitals is a remote patient monitoring solution integrating hardware and software to track, analyze, & generate early alerts, improving patient outcomes & care efficiency.",
   },
   {
     id: 5,
     image: img5,
-    title: "Holiday Country Club",
+    title: "Shuttle Management",
     description:
-      "An automated marketplace matching warehouse buyers and sellers in real-time, enabling smart search, dynamic pricing, and secure end-to-end deal execution.",
+      "ShuttleOps Parent App provides real-time tracking, pickup updates, notifications, & attendance insights, keeping parents informed & confident about their child’s transport.",
   },
   {
     id: 6,
     image: img6,
-    title: "Shuttle Management",
+    title: "Synaptix Healthcare",
     description:
-      "ShuttleOps Parent App provides real-time tracking, pickup updates, notifications, & attendance insights, keeping parents informed & confident about their child's transport.",
+      "Synaptix is a real-time care management app connecting patients & providers, enabling monitoring, alerts, & coordination to improve outcomes & timely interventions.",
   },
 ];
 
 export default function AIProducts() {
   return (
-    <section className="overflow-x-hidden bg-white px-3 py-12 sm:px-4 sm:py-16 md:px-6 lg:px-8">
+    <section className="bg-[#F0F4FF] px-3 py-12 sm:px-4 sm:py-16 md:px-6 lg:px-8">
       {/* Top label */}
       <motion.div
         className="mb-4 mt-8 flex justify-center sm:mt-10 md:mt-12 lg:mt-16"
@@ -65,21 +65,21 @@ export default function AIProducts() {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.7 }}
       >
-         <motion.span
-            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 0.6 }}
-          >
-            <BsStars className="h-4 w-4 mr-1" />
-            AI Products
-          </motion.span>
+        <motion.span
+          className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6 }}
+        >
+          <BsStars className="h-4 w-4 mr-1" />
+          AI Products
+        </motion.span>
       </motion.div>
 
       {/* Heading */}
       <motion.h1
-        className="mb-2 px-2 text-center text-3xl font-medium leading-snug text-gray-900 sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px]"
+        className="mb-2 px-2 text-center text-3xl font-medium leading-snug text-gray-900 sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[44px]"
         style={{ fontFamily: "Geist, sans-serif" }}
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -124,7 +124,6 @@ export default function AIProducts() {
                     src={product.image}
                     alt={product.title}
                     className="h-full w-full object-contain"
-                  
                     transition={{ duration: 0.5 }}
                   />
                 </div>
@@ -157,7 +156,7 @@ export default function AIProducts() {
       </div>
 
       {/* See More Button */}
-      <motion.div
+      {/* <motion.div
         className="flex justify-center mt-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +166,7 @@ export default function AIProducts() {
         <button className="inline-flex items-center gap-2 bg-gray-900 text-white text-sm px-6 py-2.5 rounded-full hover:bg-gray-700 transition-colors duration-200">
           See More <ArrowRight className="h-4 w-4 mt-0.5" />
         </button>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }

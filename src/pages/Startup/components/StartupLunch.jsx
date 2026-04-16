@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import start from "../../../assets/images/industries/start.png";
 import { BsStars } from "react-icons/bs";
-
+import bgImage from "../../../assets/images/bg1.png";
 const stats = [
   { value: "50+", label: "AI Systems Deployed" },
   { value: "200+", label: "Projects Delivered" },
@@ -28,9 +28,22 @@ const StartupLunch = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className=" py-12 sm:py-16 md:py-20"
+      className="
+      relative
+      w-screen
+      min-h-screen
+      -mt-[90px]
+      pt-[110px]
+      bg-cover
+      bg-center
+      bg-no-repeat
+      flex flex-col justify-center
+      bg-[#F0F4FF]
+    "
+          style={{ backgroundImage: `url(${bgImage})` }}
+        
     >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,9 +85,42 @@ const StartupLunch = () => {
         </motion.p>
 
         <div className="flex justify-center px-2 sm:justify-center sm:px-0 mr-24  mt-3">
-          <button className="mt-8 rounded-full bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] focus:ring-offset-2 lg:ml-16 xl:ml-24 2xl:ml-32 ">
+          {/* <button className="mt-8 rounded-full bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-[#1D4ED8] focus:ring-offset-2 lg:ml-16 xl:ml-24 2xl:ml-32 ">
             Book Free Consultation
-          </button>
+          </button> */}
+          {/* CTA — pill button + blurred neon glow (bottom only, follows pill curve) */}
+          <div className="relative z-0 mt-2 inline-flex sm:mt-3 pb-2 ml-24 md:ml-16 lg:ml-24 xl:ml-32">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-1/2 z-0 rounded-[28px] -mt-2"
+                  style={{
+                    top: "23%",
+                    bottom: "5px",
+                    width: "calc(90% + 22px)",
+                    transform: "translateX(-50%)",
+                    background: "linear-gradient(90deg,rgb(22, 248, 79) 10%,rgb(4, 54, 192) 50%,rgb(145, 7, 236) 30%)",
+                    filter: "blur(14px)",
+                   
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+                  }}
+                />
+                <a
+                  href="#services"
+                  className="relative z-10 flex items-center gap-2 rounded-full border-0 px-5 py-3 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 sm:px-7 sm:py-4 sm:text-sm"
+                  style={{
+                    background: "#0a0a0b",
+                    color: "#fff",
+                    cursor: "pointer",
+                    fontFamily: "Inter, sans-serif",
+                    boxShadow: "none",
+                  }}
+                >
+                  Book Free Consultation
+                </a>
+              </div>
         </div>
 
         <motion.p

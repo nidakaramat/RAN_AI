@@ -21,7 +21,7 @@ const AIVoice = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false, margin: "-100px" }}
-      className="relative bg-white py-10 sm:py-12 md:py-16 lg:py-20"
+      className="relative  bg-[#F0F4FF] py-10 sm:py-12 md:py-16 lg:py-20"
     >
       <div className="mx-auto w-full max-w-6xl px-3 sm:px-4 md:px-6 lg:px-8 text-center">
         <motion.div
@@ -30,7 +30,10 @@ const AIVoice = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: false }}
         >
-          <p className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 text-[14px] font-semibold shadow-xl text-[#4B5162]" style={{ fontFamily: "inter, sans-serif" }}>
+          <p
+            className="inline-flex items-center gap-1 rounded-full bg-white border border-gray-200 px-3 sm:px-4 py-1.5 sm:py-2 text-[14px] font-semibold shadow-xl text-[#4B5162]"
+            style={{ fontFamily: "inter, sans-serif" }}
+          >
             <BsStars className="text-[#121ABD] text-sm" />
             Voice AI Redirect
           </p>
@@ -122,23 +125,40 @@ const AIVoice = () => {
           viewport={{ once: false }}
           className="mt-7 sm:mt-8 md:mt-10 lg:mt-10"
         >
-          <motion.a
-            href="http://ranvoice.com/"
-             target="_blank"
-             rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.08,
-              boxShadow: "0 15px 35px rgba(16, 2, 2, 0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            animate={{ y: [0, -3, 0] }}
-            transition={{
-              y: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
-            }}
-            className="inline-flex items-center rounded-full bg-[#100202] px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition"
-          >
-            Visit RanVoice Website
-          </motion.a>
+          <div className="relative z-0 mt-2 inline-flex sm:mt-3 pb-2 ">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 z-0 rounded-[28px] -mt-2"
+              // style={{
+              //   top: "23%",
+              //   bottom: "6px",
+              //   width: "calc(90% + 22px)",
+              //   background: "linear-gradient(90deg,rgb(22, 248, 79) 10%,rgb(4, 54, 192) 50%,rgb(145, 7, 236) 30%)",
+              //   filter: "blur(14px)",
+
+              //   maskImage:
+              //     "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+              //   WebkitMaskImage:
+              //     "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+              // }}
+            />
+            <motion.a
+              href="http://ranvoice.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{
+                scale: 1,
+                boxShadow: "0 15px 35px rgba(16, 2, 2, 0.4)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                y: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
+              }}
+              className="inline-flex items-center rounded-full bg-[#100202] px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition"
+            >
+              Visit RanVoice Website
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </motion.section>
