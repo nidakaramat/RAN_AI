@@ -74,7 +74,7 @@ const AIVoice = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: false }}
-          className="mt-7 sm:mt-8 md:mt-12 grid grid-cols-1 gap-4 sm:gap-5 md:gap-5 lg:gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-7 sm:mt-8 md:mt-12 grid grid-cols-2 gap-4 sm:gap-5 md:gap-5 lg:gap-6 lg:grid-cols-4"
         >
           {agents.map((agent, idx) => (
             <motion.div
@@ -99,7 +99,7 @@ const AIVoice = () => {
               <motion.img
                 src={agent.image}
                 alt={agent.name}
-                className="h-56 sm:h-64 md:h-72 lg:h-80 w-full object-cover object-center block"
+                className="h-56 sm:h-64 md:h-72 lg:h-80 w-full object-contain object-top block"
                 whileHover={{
                   scale: 1.1,
                 }}

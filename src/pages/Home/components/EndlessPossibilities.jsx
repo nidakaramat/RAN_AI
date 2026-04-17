@@ -10,7 +10,7 @@ import { IoLogoSlack } from "react-icons/io5";
 import { LuArrowsUpFromLine } from "react-icons/lu";
 import { SiQbittorrent } from "react-icons/si";
 import { FaHubspot } from "react-icons/fa";
-
+import chatgptIcon from "../../../assets/images/chatgpt.jpeg";
 import RanLogo from "../../../assets/images/logo.png";
 
 const EndlessPossibilities = () => {
@@ -43,7 +43,18 @@ const EndlessPossibilities = () => {
       icon: <IoLogoSlack className="h-6 w-6 text-red-500" />,
       color: "bg-white",
     },
-    { name: "ChatGPT", color: "bg-white" },
+    {
+      name: "ChatGPT",
+      icon: (
+        <img
+          src={chatgptIcon}
+          alt="ChatGPT"
+          className="h-5 w-5"
+        />
+      ),
+      color: "bg-white",
+    },
+   
     {
       name: "QuickBooks",
       icon: <SiQbittorrent className="h-6 w-6 text-green-700" />,

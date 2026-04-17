@@ -173,7 +173,7 @@ const Initiative = () => {
                   viewport={{ once: false }}
                 >
                   <motion.h3
-                    className="text-sm sm:text-base md:text-[24px] font-semibold text-slate-900 "
+                    className="text-sm sm:text-base md:text-[24px] font-semibold text-slate-900 ml-5 sm:ml-4 md:ml-0 "
                     style={{ fontFamily: "DM Sans, sans-serif" }}
                     whileHover={{ x: isLeftTop ? 5 : -5 }}
                     transition={{ type: "spring", stiffness: 200 }}
@@ -181,7 +181,7 @@ const Initiative = () => {
                     {card.title}
                   </motion.h3>
                   <motion.p
-                    className=" text-xs sm:text-xs md:text-[14px] font-medium text-[#4B5162] "
+                    className=" text-xs sm:text-xs md:text-[14px] font-medium text-[#4B5162] ml-5 sm:ml-4 md:ml-0"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: index * 0.12 + 0.15, duration: 0.5 }}
@@ -194,14 +194,14 @@ const Initiative = () => {
 
                 {/* DESCRIPTION */}
                 <motion.div
-                  className={`absolute bottom-6  ${isLeftTop ? "right-6 text-left mr-5 " : "left-6 text-left ml-1"} max-w-[220px]`}
+                  className={`absolute bottom-13 sm:bottom-6  ${isLeftTop ? "right-6 text-left mr-5  " : "left-6 text-left ml-1"} max-w-[220px]`}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.12 + 0.2, duration: 0.5 }}
                   viewport={{ once: false }}
                 >
                   <p
-                    className="text-xs sm:text-sm md:text-[13px] leading-5 text-slate-600 justify-center  "
+                    className="text-xs sm:text-sm md:text-[13px] leading-5 text-slate-600 justify-center "
                     style={{ fontFamily: "inter, sans-serif" }}
                   >
                     {card.description}
@@ -210,7 +210,7 @@ const Initiative = () => {
 
                 {/* NUMBER */}
                 <motion.div
-                  className={`pointer-events-none absolute -bottom-11 ${isLeftTop ? "left-0" : "right-0"}`}
+                  className={`pointer-events-none absolute -bottom-5 sm:-bottom-11 ${isLeftTop ? "left-0" : "right-0"}`}
                   initial={{ opacity: 0, scale: 0.3, rotateZ: -90 }}
                   whileInView={{ opacity: 0.3, scale: 1, rotateZ: 0 }}
                   transition={{

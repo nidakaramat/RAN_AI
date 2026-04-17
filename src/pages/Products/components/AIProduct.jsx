@@ -87,7 +87,7 @@ export default function AIProducts() {
         transition={{ duration: 0.8 }}
       >
         AI Products Built to <br />
-        Solve Real Business <span className="text-blue-600">Problems</span>
+        Solve Real Business <span className="text-[#101ABD]">Problems</span>
       </motion.h1>
 
       {/* Subheading */}
@@ -99,7 +99,7 @@ export default function AIProducts() {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.7, delay: 0.1 }}
       >
-        Our Product <span className="text-[#101ABD]"> Suite</span>
+        Our <span className="text-[#101ABD]"> Portfolio</span>
       </motion.p>
 
       {/* Product Grid */}

@@ -6,6 +6,14 @@ import img1 from "../../../assets/images/4Step/img1.png";
 import img2 from "../../../assets/images/4Step/img2.png";
 import img3 from "../../../assets/images/4Step/img3.png";
 import img4 from "../../../assets/images/4Step/img4.png";
+import img5 from "../../../assets/images/4Step/img5.png";
+import img6 from "../../../assets/images/4Step/img6.png";
+import img7 from "../../../assets/images/4Step/img7.png";
+import img8 from "../../../assets/images/4Step/img8.png";
+import img9 from "../../../assets/images/4Step/img9.png";
+import img10 from "../../../assets/images/4Step/img10.png";
+import img11 from "../../../assets/images/4Step/img11.png";
+import img12 from "../../../assets/images/4Step/img12.png"; 
 import { BsStars } from "react-icons/bs";
 
 const steps = [
@@ -22,7 +30,7 @@ const steps = [
       "ROI and impact modeling",
       "Prioritized AI roadmap",
     ],
-    image: img1,
+    images: [img2, img3, img1],
   },
   {
     id: 2,
@@ -37,7 +45,8 @@ const steps = [
       "Security and compliance review",
       "Prototype and solution design",
     ],
-    image: img2,
+
+    images: [img5, img6, img4],
   },
   {
     id: 3,
@@ -52,7 +61,7 @@ const steps = [
       "Performance monitoring and optimization",
       "Continuous feedback loops",
     ],
-    image: img3,
+    images: [img8, img9, img7],
   },
   {
     id: 4,
@@ -67,7 +76,8 @@ const steps = [
       "Feature expansion and scaling",
       "ROI and impact tracking",
     ],
-    image: img4,
+    
+    images: [img11, img12, img10],
   },
 ];
 
@@ -276,7 +286,7 @@ export default function FourStepApproach() {
                   </motion.div>
 
                   <motion.div
-                    className="flex h-40 w-100 md:w-120 lg:w-150 flex-1 items-center justify-center rounded-2xl sm:h-48 md:h-56 lg:h-65"
+                    className="flex flex-1 items-center justify-center "
                     initial={{
                       opacity: 0,
                       scale: 0.8,
@@ -290,21 +300,29 @@ export default function FourStepApproach() {
                       stiffness: 70,
                     }}
                     viewport={{ once: false }}
-                    whileHover={{
-                      rotateY: even ? 8 : -8,
-                      rotateX: 2,
-                      scale: 1.05,
-                      // boxShadow: "0 30px 60px rgba(18, 58, 189, 0.25)"
-                    }}
-                    style={{ perspective: 1000, transformStyle: "preserve-3d" }}
                   >
-                    <motion.img
-                      src={step.image}
-                      alt={step.title}
-                      className="h-full w-[120px] sm:w-[150px] md:w-[180px] lg:w-full object-contain rounded-2xl mr-6"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.4 }}
-                    />
+                    <div className="grid grid-cols-2 gap-2 sm:gap-1 md:gap-2 w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[500px] md:max-w-[550px] mx-auto">
+                      {/* LEFT COLUMN (2 images) */}
+                      <div className="flex flex-col gap-2 sm:gap-3 mt-1">
+                        <motion.img
+                          src={step.images[0]}
+                          className="w-full h-[110px] xs:h-[120px] sm:h-[140px] md:h-[160px] object-cover rounded-3xl sm:rounded-4xl"
+                          whileHover={{ scale: 1.05 }}
+                        />
+                        <motion.img
+                          src={step.images[1]}
+                          className="w-full h-[110px] xs:h-[120px] sm:h-[140px] md:h-[160px] object-cover rounded-3xl sm:rounded-4xl"
+                          whileHover={{ scale: 1.05 }}
+                        />
+                      </div>
+
+                      {/* RIGHT COLUMN */}
+                      <motion.img
+                        src={step.images[2]}
+                        className="w-full h-[230px] xs:h-[250px] sm:h-[290px] md:h-[330px] object-contain rounded-3xl sm:rounded-4xl"
+                        whileHover={{ scale: 1.05 }}
+                      />
+                    </div>
                   </motion.div>
                 </motion.div>
               );

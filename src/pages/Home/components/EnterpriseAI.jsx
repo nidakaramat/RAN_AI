@@ -1,8 +1,6 @@
-
-
 import { motion } from "framer-motion";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 // import bgImage from "../../../assets/images/bg.png";
 import bgImage from "../../../assets/images/bg1.png";
 import img1 from "../../../assets/images/Mainsection/img1.png";
@@ -15,7 +13,6 @@ import img7 from "../../../assets/images/Mainsection/img7.png";
 import img8 from "../../../assets/images/Mainsection/img8.png";
 import img9 from "../../../assets/images/Mainsection/img9.png";
 import img10 from "../../../assets/images/Mainsection/img10.png";
-
 
 const clientImages = [img1, img2, img3, img4, img5];
 const overlayCards = [
@@ -33,6 +30,57 @@ const layout = [
   { width: 330, height: 350, x: 240, y: 25, rotate: 2, scale: 0.95, z: 20 },
   { width: 210, height: 300, x: 420, y: 50, rotate: 4, scale: 0.9, z: 10 },
 ];
+
+const getResponsiveLayout = (idx, width) => {
+  const base = layout[idx];
+  const safeWidth = width || 1440;
+
+  if (safeWidth < 640) {
+    const mobileLayouts = [
+      { width: 130, height: 170, x: -110, y: 38, rotate: -1, scale: 0.78, z: 10 },
+      { width: 150, height: 200, x: -55, y: 24, rotate: -4, scale: 0.86, z: 20 },
+      { width: 180, height: 240, x: 0, y: 12, rotate: 0, scale: 0.95, z: 40 },
+      { width: 150, height: 200, x: 55, y: 24, rotate: 2, scale: 0.86, z: 20 },
+      { width: 130, height: 170, x: 110, y: 38, rotate: 4, scale: 0.78, z: 10 },
+    ];
+    return mobileLayouts[idx];
+  }
+
+  if (safeWidth < 768) {
+    const smLayouts = [
+      { width: 160, height: 205, x: -100, y: 36, rotate: -1, scale: 0.82, z: 10 },
+      { width: 185, height: 235, x: -60, y: 26, rotate: -4, scale: 0.9, z: 20 },
+      { width: 220, height: 270, x: 0, y: 14, rotate: 0, scale: 0.98, z: 40 },
+      { width: 185, height: 235, x: 60, y: 26, rotate: 2, scale: 0.9, z: 20 },
+      { width: 160, height: 205, x: 100, y: 36, rotate: 4, scale: 0.82, z: 10 },
+    ];
+    return smLayouts[idx];
+  }
+
+  if (safeWidth < 1024) {
+    const mdLayouts = [
+      { width: 215, height: 280, x: -196, y: 44, rotate: -1, scale: 0.9, z: 10 },
+      { width: 255, height: 315, x: -120, y: 32, rotate: -4, scale: 0.95, z: 20 },
+      { width: 310, height: 350, x: 0, y: 24, rotate: 0, scale: 1, z: 40 },
+      { width: 285, height: 320, x: 120, y: 32, rotate: 2, scale: 0.95, z: 20 },
+      { width: 185, height: 260, x: 196, y: 44, rotate: 4, scale: 0.9, z: 10 },
+    ];
+    return mdLayouts[idx];
+  }
+
+  if (safeWidth < 1280) {
+    const lgLayouts = [
+      { width: 230, height: 295, x: -260, y: 48, rotate: -1, scale: 0.92, z: 10 },
+      { width: 275, height: 335, x: -160, y: 36, rotate: -4, scale: 0.96, z: 20 },
+      { width: 335, height: 380, x: 0, y: 26, rotate: 0, scale: 1, z: 40 },
+      { width: 325, height: 345, x: 160, y: 36, rotate: 2, scale: 0.96, z: 20 },
+      { width: 215, height: 305, x: 260, y: 48, rotate: 4, scale: 0.92, z: 10 },
+    ];
+    return lgLayouts[idx];
+  }
+
+  return base;
+};
 
 /* ── 3D Tilt Card ── */
 const TiltCard = ({ card, l, idx, mounted }) => {
@@ -169,6 +217,15 @@ const TiltCard = ({ card, l, idx, mounted }) => {
 };
 
 const EnterpriseAI = () => {
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const updateWidth = () => setWindowWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   return (
     <>
       {/* Keyframes injected once */}
@@ -219,7 +276,7 @@ const EnterpriseAI = () => {
               <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 sm:gap-6 text-center">
                 {/* Heading */}
                 <h1
-                  className="max-w-4xl text-xl sm:text-2xl md:text-4xl lg:text-[50px] font-medium font-Geist leading-tight text-slate-900 mt-18"
+                  className="max-w-4xl text-xl sm:text-2xl md:text-4xl lg:text-[50px] font-medium font-Geist leading-tight text-slate-900 mt-30"
                   style={{
                     fontFamily: "Geist, sans-serif",
                     animation: "headingSlide 0.8s ease 0.3s both",
@@ -279,57 +336,11 @@ const EnterpriseAI = () => {
                 </div>
               </div>
 
-              <div className="w-full flex justify-center mt-4 sm:mt-30 overflow-hidden">
-                {/* MAIN CONTAINER */}
-                <div className="hidden md:flex relative w-full max-w-[1300px] h-[320px] md:h-[380px] lg:h-[420px] items-end justify-center">
+              <div className="w-full flex justify-center mt-4 sm:mt-32 overflow-hidden">
+                {/* MAIN CONTAINER - RESPONSIVE CARDS */}
+                <div className="relative flex w-full max-w-[1300px] h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] items-end justify-center">
                   {overlayCards.map((card, idx) => {
-                    const layout = [
-                      {
-                        width: 250,
-                        height: 300,
-                        x: -390,
-                        y: 50,
-                        rotate: -1,
-                        scale: 0.9,
-                        z: 10,
-                      },
-                      {
-                        width: 300,
-                        height: 350,
-                        x: -240,
-                        y: 35,
-                        rotate: -4,
-                        scale: 0.95,
-                        z: 20,
-                      },
-                      {
-                        width: 340,
-                        height: 380,
-                        x: 0,
-                        y: 25,
-                        rotate: 0,
-                        scale: 1,
-                        z: 40,
-                      },
-                      {
-                        width: 330,
-                        height: 350,
-                        x: 240,
-                        y: 25,
-                        rotate: 2,
-                        scale: 0.95,
-                        z: 20,
-                      },
-                      {
-                        width: 210,
-                        height: 300,
-                        x: 420,
-                        y: 50,
-                        rotate: 4,
-                        scale: 0.9,
-                        z: 10,
-                      },
-                    ][idx];
+                    const layout = getResponsiveLayout(idx, windowWidth);
 
                     return (
                       <div
@@ -338,17 +349,17 @@ const EnterpriseAI = () => {
                         style={{
                           width: `${layout.width}px`,
                           transform: `
-          translateX(${layout.x}px)
-          translateY(${layout.y}px)
-          rotate(${layout.rotate}deg)
-          scale(${layout.scale})
-        `,
+              translateX(${layout.x}px)
+              translateY(${layout.y}px)
+              rotate(${layout.rotate}deg)
+              scale(${layout.scale})
+            `,
                           zIndex: layout.z,
                           perspective: "1000px",
                         }}
                       >
                         <motion.div
-                          className="relative overflow-hidden rounded-[28px] "
+                          className="relative overflow-hidden rounded-[28px]"
                           style={{ transformStyle: "preserve-3d" }}
                           initial={{
                             opacity: 0,
@@ -404,35 +415,6 @@ const EnterpriseAI = () => {
                   })}
                 </div>
 
-                {/* MOBILE */}
-                <div className="flex md:hidden gap-3 sm:gap-4 overflow-x-auto px-3 sm:px-4 w-full">
-                  {overlayCards.map((card, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="min-w-[240px] rounded-2xl overflow-hidden shadow-lg"
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, margin: "-80px" }}
-                      transition={{
-                        duration: 0.7,
-                        delay: idx * 0.08,
-                        type: "spring",
-                        stiffness: 120,
-                      }}
-                    >
-                      <div className="relative">
-                        <img
-                          src={card.image}
-                          alt={card.label}
-                          className="h-[300px] w-full object-cover"
-                        />
-                        <span className="absolute top-3 left-3 bg-white/90 px-3 py-1 text-xs font-semibold rounded-full shadow">
-                          {card.label}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

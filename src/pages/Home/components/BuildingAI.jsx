@@ -205,7 +205,7 @@ const BuildingAI = () => {
 
           {/* ── RIGHT IMAGE ── */}
           <motion.div
-            className="relative mt-8 flex min-w-0 items-center justify-center lg:mt-40 lg:justify-end lg:pr-30"
+            className="relative mt-8 flex min-w-0 items-center justify-end lg:mt-40 lg:pr-30"
             initial={{ opacity: 0, x: 80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -213,7 +213,7 @@ const BuildingAI = () => {
             <motion.img
               src={Group}
               alt="AI Illustration"
-              className="h-auto max-h-[280px] w-full max-w-full object-contain translate-x-0 sm:max-h-[360px] sm:translate-x-4 md:max-h-[440px] md:translate-x-8 lg:h-[560px] lg:max-h-none lg:w-auto lg:translate-x-20"
+              className="h-auto max-h-[280px] w-auto max-w-[90%] object-contain translate-x-12 sm:max-h-[360px] sm:translate-x-16 sm:max-w-full md:max-h-[450px] md:translate-x-20 lg:h-[560px] lg:max-h-none lg:w-auto lg:translate-x-20"
               // 👇 floating animation
               animate={{ y: [0, -15, 0] }}
               transition={{

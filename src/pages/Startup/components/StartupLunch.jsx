@@ -40,8 +40,7 @@ const StartupLunch = () => {
       flex flex-col justify-center
       bg-[#F0F4FF]
     "
-          style={{ backgroundImage: `url(${bgImage})` }}
-        
+      style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-30">
         <motion.div
@@ -51,8 +50,8 @@ const StartupLunch = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center"
         >
-           <motion.span
-            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium"
+          <motion.span
+            className="inline-flex items-center text-blue-600 bg-white shadow-lg border border-blue-100 px-3 py-2 rounded-full text-[16px] font-medium mt-10 sm:mt-0"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
@@ -77,7 +76,7 @@ const StartupLunch = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-          className="mx-auto mt-8 max-w-3xl text-center text-medium leading-8 text-[#767676] sm:text-[20px] lg:text-[21px]"
+          className="mx-auto mt-8 max-w-3xl text-center text-medium leading-8 text-[#767676]   sm:text-[20px] lg:text-[21px]"
         >
           Ran AI Launchpad helps startups design, build, and scale AI-powered
           <br />
@@ -89,38 +88,39 @@ const StartupLunch = () => {
             Book Free Consultation
           </button> */}
           {/* CTA — pill button + blurred neon glow (bottom only, follows pill curve) */}
-          <div className="relative z-0 mt-2 inline-flex sm:mt-3 pb-2 ml-24 md:ml-16 lg:ml-24 xl:ml-32">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute left-1/2 z-0 rounded-[28px] -mt-2"
-                  style={{
-                    top: "23%",
-                    bottom: "5px",
-                    width: "calc(90% + 22px)",
-                    transform: "translateX(-50%)",
-                    background: "linear-gradient(90deg,rgb(22, 248, 79) 10%,rgb(4, 54, 192) 50%,rgb(145, 7, 236) 30%)",
-                    filter: "blur(14px)",
-                   
-                    maskImage:
-                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
-                    WebkitMaskImage:
-                      "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
-                  }}
-                />
-                <a
-                  href="#services"
-                  className="relative z-10 flex items-center gap-2 rounded-full border-0 px-5 py-3 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 sm:px-7 sm:py-4 sm:text-sm"
-                  style={{
-                    background: "#0a0a0b",
-                    color: "#fff",
-                    cursor: "pointer",
-                    fontFamily: "Inter, sans-serif",
-                    boxShadow: "none",
-                  }}
-                >
-                  Book Free Consultation
-                </a>
-              </div>
+          <div className="relative z-0 mt-4 inline-flex sm:mt-3 pb-2 sm:pb-2 ml-10 sm:ml-16 lg:ml-24">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 z-0 rounded-[28px] -mt-2"
+              style={{
+                top: "23%",
+                bottom: "5px",
+                width: "calc(90% + 22px)",
+                transform: "translateX(-50%)",
+                background:
+                  "linear-gradient(90deg,rgb(22, 248, 79) 10%,rgb(4, 54, 192) 50%,rgb(145, 7, 236) 30%)",
+                filter: "blur(14px)",
+
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.15) 28%, black 52%, black 100%)",
+              }}
+            />
+            <a
+              href="#services"
+              className="relative z-10 flex items-center gap-2 rounded-full  border-0 px-5 py-3 text-xs font-semibold text-white transition-transform hover:-translate-y-0.5 sm:px-7 sm:py-4 sm:text-sm"
+              style={{
+                background: "#0a0a0b",
+                color: "#fff",
+                cursor: "pointer",
+                fontFamily: "Inter, sans-serif",
+                boxShadow: "none",
+              }}
+            >
+              Book Free Consultation
+            </a>
+          </div>
         </div>
 
         <motion.p
@@ -136,7 +136,7 @@ const StartupLunch = () => {
         </motion.p>
       </div>
 
-       {/* Stats */}
+      {/* Stats */}
       <motion.div
         className="mt-15 max-w-[1050px] mx-auto grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         style={{ fontFamily: "Geist, sans-serif" }}
@@ -156,7 +156,9 @@ const StartupLunch = () => {
           >
             <span className="absolute left-0 top-1/2 h-16 w-px -translate-y-1/2 bg-slate-400"></span>
             <p className="text-5xl font-medium text-[#121ABD]">{item.value}</p>
-            <p className="mt-2 text-sm font-medium text-slate-500">{item.label}</p>
+            <p className="mt-2 text-sm font-medium text-slate-500">
+              {item.label}
+            </p>
           </motion.div>
         ))}
       </motion.div>
@@ -168,7 +170,11 @@ const StartupLunch = () => {
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 1, type: "spring", bounce: 0.3 }}
       >
-        <img src={start} alt="start" className="h-auto w-full max-w-5xl px-4 sm:max-w-6xl sm:px-6 lg:w-[76%] lg:max-w-none" />
+        <img
+          src={start}
+          alt="start"
+          className="h-auto w-full max-w-5xl px-4 sm:max-w-6xl sm:px-6 lg:w-[76%] lg:max-w-none"
+        />
       </motion.div>
     </motion.section>
   );
